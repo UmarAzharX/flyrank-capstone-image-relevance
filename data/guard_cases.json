@@ -1,0 +1,38 @@
+[
+  {
+    "id": "guard_001",
+    "case_type": "forced_subject_mismatch",
+    "post_title": "The Behavior of Red Foxes",
+    "post_content": "Red foxes are adaptable wild canids found in forests, grasslands, and urban environments.",
+    "forced_candidate_image_id": "wolf_001",
+    "expected_decision": "reject",
+    "expected_reason_contains": "subject"
+  },
+  {
+    "id": "guard_002",
+    "case_type": "forced_related_mismatch",
+    "post_title": "Red Fox Habitat and Hunting",
+    "post_content": "Red foxes rely on keen hearing and flexible hunting behavior in woodland and open terrain.",
+    "forced_candidate_image_id": "dog_001",
+    "expected_decision": "reject",
+    "expected_reason_contains": "subject"
+  },
+  {
+    "id": "guard_003",
+    "case_type": "no_suitable_image",
+    "post_title": "How Humpback Whales Migrate Across Oceans",
+    "post_content": "Humpback whales travel thousands of kilometers between feeding and breeding grounds.",
+    "forced_candidate_image_id": null,
+    "expected_decision": "no_confident_match",
+    "expected_reason_contains": "similarity"
+  },
+  {
+    "id": "guard_004",
+    "case_type": "low_confidence",
+    "post_title": "Ambiguous Wildlife Classification",
+    "post_content": "This case is reserved for verifying that a schema-valid but low-confidence image classification is flagged instead of silently accepted.",
+    "forced_candidate_image_id": null,
+    "expected_decision": "flag",
+    "expected_reason_contains": "confidence"
+  }
+]

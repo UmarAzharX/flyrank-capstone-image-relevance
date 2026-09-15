@@ -179,3 +179,11 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+
+# Local image corpus
+data/images/*
+!data/images/.gitkeep
+
+# Local image corpus
+data/images/*
+!data/images/.gitkeep

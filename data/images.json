@@ -1,0 +1,402 @@
+[
+  {
+    "id": "fox_001",
+    "expected_subject": "red fox",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/red-fox-in-snowy-winter-setting-outdoors-35986459/",
+    "download_url": null,
+    "filename": "fox_001.jpg"
+  },
+  {
+    "id": "fox_002",
+    "expected_subject": "red fox",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/red-fox-walking-in-snow-20853949/",
+    "download_url": null,
+    "filename": "fox_002.jpg"
+  },
+  {
+    "id": "fox_003",
+    "expected_subject": "red fox",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/ezo-red-fox-walking-on-road-9681745/",
+    "download_url": null,
+    "filename": "fox_003.jpg"
+  },
+  {
+    "id": "fox_004",
+    "expected_subject": "red fox",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/wild-red-fox-in-english-woodland-setting-30582092/",
+    "download_url": null,
+    "filename": "fox_004.jpg"
+  },
+  {
+    "id": "fox_005",
+    "expected_subject": "red fox",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/red-fox-walking-in-the-meadow-26655860/",
+    "download_url": null,
+    "filename": "fox_005.jpg"
+  },
+  {
+    "id": "fox_006",
+    "expected_subject": "red fox",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/a-fox-on-the-grass-11815421/",
+    "download_url": null,
+    "filename": "fox_006.jpg"
+  },
+  {
+    "id": "fox_007",
+    "expected_subject": "red fox",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/brown-fox-walking-on-the-gray-asphalt-road-9681751/",
+    "download_url": null,
+    "filename": "fox_007.jpg"
+  },
+  {
+    "id": "fox_008",
+    "expected_subject": "red fox",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/a-person-feeding-wild-fox-on-the-road-9681748/",
+    "download_url": null,
+    "filename": "fox_008.jpg"
+  },
+  {
+    "id": "fox_009",
+    "expected_subject": "red fox",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/a-brown-fox-walking-on-the-seashore-11404071/",
+    "download_url": null,
+    "filename": "fox_009.jpg"
+  },
+  {
+    "id": "fox_010",
+    "expected_subject": "red fox",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/fox-on-road-18149194/",
+    "download_url": null,
+    "filename": "fox_010.jpg"
+  },
+  {
+    "id": "wolf_001",
+    "expected_subject": "wolf",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/brown-wolf-682375/",
+    "download_url": null,
+    "filename": "wolf_001.jpg"
+  },
+  {
+    "id": "wolf_002",
+    "expected_subject": "wolf",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/gray-wolf-in-close-up-photography-11800382/",
+    "download_url": null,
+    "filename": "wolf_002.jpg"
+  },
+  {
+    "id": "wolf_003",
+    "expected_subject": "wolf",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/close-up-portrait-of-a-majestic-wolf-in-snow-36129725/",
+    "download_url": null,
+    "filename": "wolf_003.jpg"
+  },
+  {
+    "id": "wolf_004",
+    "expected_subject": "wolf",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/captivating-portrait-of-a-wolf-in-natural-setting-38113471/",
+    "download_url": null,
+    "filename": "wolf_004.jpg"
+  },
+  {
+    "id": "wolf_005",
+    "expected_subject": "wolf",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/brown-and-white-wolf-in-tilt-shift-lens-10787211/",
+    "download_url": null,
+    "filename": "wolf_005.jpg"
+  },
+  {
+    "id": "wolf_006",
+    "expected_subject": "wolf",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/a-wolf-on-the-grass-7402790/",
+    "download_url": null,
+    "filename": "wolf_006.jpg"
+  },
+  {
+    "id": "wolf_007",
+    "expected_subject": "wolf",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/majestic-grey-wolf-in-natural-habitat-33091531/",
+    "download_url": null,
+    "filename": "wolf_007.jpg"
+  },
+  {
+    "id": "wolf_008",
+    "expected_subject": "wolf",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/photo-of-a-wolf-9455411/",
+    "download_url": null,
+    "filename": "wolf_008.jpg"
+  },
+  {
+    "id": "wolf_009",
+    "expected_subject": "wolf",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/standing-woolf-looking-15578846/",
+    "download_url": null,
+    "filename": "wolf_009.jpg"
+  },
+  {
+    "id": "wolf_010",
+    "expected_subject": "wolf",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/woolf-hearing-careful-15578850/",
+    "download_url": null,
+    "filename": "wolf_010.jpg"
+  },
+  {
+    "id": "dog_001",
+    "expected_subject": "dog",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/white-and-gray-siberian-husky-6748158/",
+    "download_url": null,
+    "filename": "dog_001.jpg"
+  },
+  {
+    "id": "dog_002",
+    "expected_subject": "dog",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/alaskan-malamute-sitting-outdoors-in-almere-33757471/",
+    "download_url": null,
+    "filename": "dog_002.jpg"
+  },
+  {
+    "id": "dog_003",
+    "expected_subject": "dog",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/close-up-of-playful-siberian-husky-with-human-hand-31203405/",
+    "download_url": null,
+    "filename": "dog_003.jpg"
+  },
+  {
+    "id": "dog_004",
+    "expected_subject": "dog",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/close-up-photo-of-a-german-shepherd-11453931/",
+    "download_url": null,
+    "filename": "dog_004.jpg"
+  },
+  {
+    "id": "dog_005",
+    "expected_subject": "dog",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/photo-of-a-german-shepherd-yawning-11503732/",
+    "download_url": null,
+    "filename": "dog_005.jpg"
+  },
+  {
+    "id": "dog_006",
+    "expected_subject": "dog",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/dog-standing-on-seashore-13084932/",
+    "download_url": null,
+    "filename": "dog_006.jpg"
+  },
+  {
+    "id": "dog_007",
+    "expected_subject": "dog",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/pair-of-malamute-alaskan-dogs-8730429/",
+    "download_url": null,
+    "filename": "dog_007.jpg"
+  },
+  {
+    "id": "dog_008",
+    "expected_subject": "dog",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/adorable-siberian-husky-puppy-resting-on-stairs-36904634/",
+    "download_url": null,
+    "filename": "dog_008.jpg"
+  },
+  {
+    "id": "dog_009",
+    "expected_subject": "dog",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/german-shepherd-sitting-on-grass-18892323/",
+    "download_url": null,
+    "filename": "dog_009.jpg"
+  },
+  {
+    "id": "dog_010",
+    "expected_subject": "dog",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/dogs-on-snow-during-winter-11764467/",
+    "download_url": null,
+    "filename": "dog_010.jpg"
+  },
+  {
+    "id": "bear_001",
+    "expected_subject": "bear",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/black-bear-near-road-in-forest-24589420/",
+    "download_url": null,
+    "filename": "bear_001.jpg"
+  },
+  {
+    "id": "bear_002",
+    "expected_subject": "bear",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/brown-bear-in-scenic-mountain-landscape-39460761/",
+    "download_url": null,
+    "filename": "bear_002.jpg"
+  },
+  {
+    "id": "bear_003",
+    "expected_subject": "bear",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/grizzly-bear-in-winter-17830898/",
+    "download_url": null,
+    "filename": "bear_003.jpg"
+  },
+  {
+    "id": "bear_004",
+    "expected_subject": "bear",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/close-up-of-a-grizzly-bear-17646622/",
+    "download_url": null,
+    "filename": "bear_004.jpg"
+  },
+  {
+    "id": "bear_005",
+    "expected_subject": "bear",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/brown-bear-3048718/",
+    "download_url": null,
+    "filename": "bear_005.jpg"
+  },
+  {
+    "id": "bear_006",
+    "expected_subject": "bear",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/standing-bear-in-captivity-20612302/",
+    "download_url": null,
+    "filename": "bear_006.jpg"
+  },
+  {
+    "id": "bear_007",
+    "expected_subject": "bear",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/bear-walking-in-autumn-forest-17202569/",
+    "download_url": null,
+    "filename": "bear_007.jpg"
+  },
+  {
+    "id": "bear_008",
+    "expected_subject": "bear",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/brown-bear-in-swedish-countryside-grassland-31451543/",
+    "download_url": null,
+    "filename": "bear_008.jpg"
+  },
+  {
+    "id": "bear_009",
+    "expected_subject": "bear",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/brown-bear-in-lush-green-mountain-landscape-39296878/",
+    "download_url": null,
+    "filename": "bear_009.jpg"
+  },
+  {
+    "id": "bear_010",
+    "expected_subject": "bear",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/black-bears-on-tree-branches-13206702/",
+    "download_url": null,
+    "filename": "bear_010.jpg"
+  },
+  {
+    "id": "deer_001",
+    "expected_subject": "deer",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/young-deer-in-sunlit-forest-clearing-37284372/",
+    "download_url": null,
+    "filename": "deer_001.jpg"
+  },
+  {
+    "id": "deer_002",
+    "expected_subject": "deer",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/deer-on-a-grass-field-16924950/",
+    "download_url": null,
+    "filename": "deer_002.jpg"
+  },
+  {
+    "id": "deer_003",
+    "expected_subject": "deer",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/close-up-portrait-of-a-deer-in-natural-habitat-31805554/",
+    "download_url": null,
+    "filename": "deer_003.jpg"
+  },
+  {
+    "id": "deer_004",
+    "expected_subject": "deer",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/brown-deer-with-large-antlers-10906728/",
+    "download_url": null,
+    "filename": "deer_004.jpg"
+  },
+  {
+    "id": "deer_005",
+    "expected_subject": "deer",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/deer-standing-on-spring-meadow-at-dusk-16989632/",
+    "download_url": null,
+    "filename": "deer_005.jpg"
+  },
+  {
+    "id": "deer_006",
+    "expected_subject": "deer",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/two-deers-on-the-road-on-a-foggy-day-4589064/",
+    "download_url": null,
+    "filename": "deer_006.jpg"
+  },
+  {
+    "id": "deer_007",
+    "expected_subject": "deer",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/brown-deer-eating-on-green-grass-field-6227522/",
+    "download_url": null,
+    "filename": "deer_007.jpg"
+  },
+  {
+    "id": "deer_008",
+    "expected_subject": "deer",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/brown-deers-in-the-forest-during-golden-hour-10812818/",
+    "download_url": null,
+    "filename": "deer_008.jpg"
+  },
+  {
+    "id": "deer_009",
+    "expected_subject": "deer",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/brown-deers-on-snow-covered-ground-6759887/",
+    "download_url": null,
+    "filename": "deer_009.jpg"
+  },
+  {
+    "id": "deer_010",
+    "expected_subject": "deer",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/a-herd-of-red-deers-in-the-forest-7037046/",
+    "download_url": null,
+    "filename": "deer_010.jpg"
+  }
+]

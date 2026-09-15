@@ -35,3 +35,7 @@ A small `app/` scaffold and empty `tests/` directory were created prematurely wh
 - cosine similarity for ranking
 - a separate mismatch guard for acceptance/rejection
 - no dedicated vector database for the initial small corpus
+
+### Dataset audit correction
+
+After the manifest was populated, an audit showed that only 3 of the 50 referenced image files actually existed locally. The remaining 47 images were then downloaded from their recorded Pexels source pages. A final audit confirmed 50 manifest entries, 50 local images, no missing or unexpected files, no duplicate IDs or filenames, valid JPEG signatures, and 10 images in each of the five planned categories.
