@@ -15,6 +15,7 @@ class RankedImage:
     external_id: str
     subject: str
     caption: str
+    attributes: list[str]
     similarity_score: float
 
 
@@ -90,6 +91,7 @@ def rank_images_for_post(
                     external_id=image.external_id,
                     subject=metadata.subject,
                     caption=metadata.caption,
+                    attributes=list(metadata.attributes),
                     similarity_score=cosine_similarity(
                         post_embedding.vector,
                         embedding.vector,

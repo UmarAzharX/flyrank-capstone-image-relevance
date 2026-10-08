@@ -5,9 +5,9 @@ from pathlib import Path
 from sqlalchemy import select
 
 from app.database import SessionLocal
+from app.mismatch_guard import evaluate_mismatch
 from app.models import Post, Tenant
 from app.ranking import rank_images_for_post
-from app.subject_guard import evaluate_subject_match
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -60,10 +60,12 @@ def main() -> None:
         guarded = [
             (
                 item,
-                evaluate_subject_match(
+                evaluate_mismatch(
                     post_title=title,
                     post_content=content,
                     image_subject=item.subject,
+                    image_caption=item.caption,
+                    image_attributes=item.attributes,
                 ),
             )
             for item in ranked
@@ -83,7 +85,7 @@ def main() -> None:
         print(
             f"{position}. {item.external_id} "
             f"| score={item.similarity_score:.6f} "
-            f"| subject_guard={guard.decision}"
+            f"| guard={guard.decision}"
         )
         print("   Explanation:", guard.explanation)
         print("   Caption:", item.caption)
