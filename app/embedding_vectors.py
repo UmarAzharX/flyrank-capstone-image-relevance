@@ -3,6 +3,9 @@ import math
 
 EMBEDDING_MODEL = "gemini-embedding-2"
 EMBEDDING_DIMENSIONS = 768
+EMBEDDING_PROFILE = (
+    f"{EMBEDDING_MODEL}:{EMBEDDING_DIMENSIONS}:retrieval:text-v1"
+)
 
 
 def validate_and_normalize_vector(values: list[float]) -> list[float]:
