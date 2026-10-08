@@ -24,3 +24,13 @@ def build_image_embedding_text(metadata: VisionMetadata) -> str:
     lines.append(f"Caption: {caption}")
 
     return "\n".join(lines)
+
+
+def build_post_embedding_text(*, title: str, content: str) -> str:
+    title = " ".join(title.split())
+    content = " ".join(content.split())
+
+    if not title or not content:
+        raise ValueError("Post title and content must contain text.")
+
+    return f"Title: {title}\nContent: {content}"
