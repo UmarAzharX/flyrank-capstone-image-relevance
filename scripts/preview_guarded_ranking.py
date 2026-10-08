@@ -4,6 +4,7 @@ from pathlib import Path
 
 from sqlalchemy import select
 
+from app.config import settings
 from app.database import SessionLocal
 from app.mismatch_guard import evaluate_mismatch
 from app.models import Post, Tenant
@@ -66,6 +67,8 @@ def main() -> None:
                     image_subject=item.subject,
                     image_caption=item.caption,
                     image_attributes=item.attributes,
+                    image_confidence=item.confidence,
+                    confidence_threshold=settings.vision_confidence_threshold,
                 ),
             )
             for item in ranked
@@ -85,6 +88,7 @@ def main() -> None:
         print(
             f"{position}. {item.external_id} "
             f"| score={item.similarity_score:.6f} "
+            f"| vision_confidence={item.confidence} "
             f"| guard={guard.decision}"
         )
         print("   Explanation:", guard.explanation)

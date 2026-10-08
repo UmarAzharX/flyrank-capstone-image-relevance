@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from typing import Literal
 
+from app.confidence_guard import evaluate_vision_confidence
 from app.context_guard import evaluate_winter_context
 from app.subject_guard import evaluate_subject_match
 
@@ -18,6 +19,8 @@ def evaluate_mismatch(
     image_subject: str,
     image_caption: str,
     image_attributes: list[str],
+    image_confidence: float | None,
+    confidence_threshold: float,
 ) -> MismatchGuardResult:
     subject = evaluate_subject_match(
         post_title=post_title,
@@ -30,8 +33,16 @@ def evaluate_mismatch(
         image_caption=image_caption,
         image_attributes=image_attributes,
     )
+    confidence = evaluate_vision_confidence(
+        confidence=image_confidence,
+        threshold=confidence_threshold,
+    )
 
-    explanation = f"{subject.explanation} {context.explanation}"
+    explanation = " ".join([
+        subject.explanation,
+        context.explanation,
+        confidence.explanation,
+    ])
 
     if subject.decision == "reject" or context.decision == "reject":
         return MismatchGuardResult("reject", explanation)
@@ -42,6 +53,7 @@ def evaluate_mismatch(
     if (
         subject.decision == "review"
         or context.decision in {"review", "not_applicable"}
+        or confidence.decision == "review"
     ):
         return MismatchGuardResult("review", explanation)
 
