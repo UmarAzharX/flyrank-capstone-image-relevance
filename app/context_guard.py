@@ -88,3 +88,96 @@ def evaluate_winter_context(
         "pass",
         "Winter/snow context is supported by image metadata.",
     )
+
+
+HABITAT_PATTERNS = {
+    "woodland": r"\b(?:forests?|woodlands?|woods|wooded)\b",
+    "grassland": r"\b(?:grass|grasses|grasslands?|meadows?|lawns?)\b",
+    "indoor setting": r"\b(?:homes?|houses?|indoors?|living\s+room)\b",
+    "road": r"\b(?:roads?|asphalt|pavement|streets?|urban|city|town)\b",
+    "close-up view": r"\bclose(?:[- ]up|\s+(?:view|portrait))\b",
+}
+
+HABITAT_OUTDOOR = re.compile(
+    r"\b(?:outdoors?|outside)\b", re.IGNORECASE
+)
+HABITAT_NEGATED = re.compile(
+    r"\b(?:no|not|without)\s+(?:\w+\s+){0,2}"
+    r"(?:forests?|woodlands?|woods|grass|meadows?|lawns?"
+    r"|home|indoors?|outdoors?|outside|roads?|streets?"
+    r"|close[- ]up)\b"
+    r"|\b(?:forest|grass|road)[ -]free\b",
+    re.IGNORECASE,
+)
+
+
+def _habitats_in(text: str) -> set[str]:
+    return {
+        habitat
+        for habitat, pattern in HABITAT_PATTERNS.items()
+        if re.search(pattern, text, flags=re.IGNORECASE)
+    }
+
+
+def evaluate_habitat_context(
+    *,
+    post_title: str,
+    post_content: str,
+    image_caption: str,
+    image_attributes: list[str],
+) -> ContextGuardResult:
+    post_text = f"{post_title}\n{post_content}"
+    image_text = "\n".join([image_caption, *image_attributes])
+    required = _habitats_in(post_text)
+
+    if not required:
+        return ContextGuardResult(
+            "not_applicable",
+            "No supported habitat or framing requirement detected.",
+        )
+
+    if (
+        HABITAT_NEGATED.search(post_text)
+        or HABITAT_NEGATED.search(image_text)
+    ):
+        return ContextGuardResult(
+            "review",
+            "Negated habitat wording needs context review.",
+        )
+
+    present = _habitats_in(image_text)
+
+    if "indoor setting" in required:
+        if HABITAT_OUTDOOR.search(post_text):
+            return ContextGuardResult(
+                "review",
+                "Post mixes indoor and outdoor settings.",
+            )
+
+        if HABITAT_OUTDOOR.search(image_text):
+            if "indoor setting" in present:
+                return ContextGuardResult(
+                    "review",
+                    "Image metadata mixes indoor and outdoor settings.",
+                )
+            return ContextGuardResult(
+                "reject",
+                "Setting mismatch: post requests an indoor setting; "
+                "image metadata explicitly describes outdoors.",
+            )
+
+    missing = required - present
+    if missing:
+        return ContextGuardResult(
+            "review",
+            "Image metadata does not confirm required context: "
+            + ", ".join(sorted(missing))
+            + ".",
+        )
+
+    return ContextGuardResult(
+        "pass",
+        "Image metadata supports the requested context: "
+        + ", ".join(sorted(required))
+        + ".",
+    )
