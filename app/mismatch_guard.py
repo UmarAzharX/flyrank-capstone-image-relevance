@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from typing import Literal
 
 from app.confidence_guard import evaluate_vision_confidence
-from app.context_guard import evaluate_winter_context
+from app.context_guard import evaluate_context_match
 from app.subject_guard import evaluate_subject_match
 
 
@@ -27,7 +27,7 @@ def evaluate_mismatch(
         post_content=post_content,
         image_subject=image_subject,
     )
-    context = evaluate_winter_context(
+    context = evaluate_context_match(
         post_title=post_title,
         post_content=post_content,
         image_caption=image_caption,
@@ -48,7 +48,7 @@ def evaluate_mismatch(
         return MismatchGuardResult("reject", explanation)
 
     if context.decision == "not_applicable":
-        explanation += " Other habitat requirements need review."
+        explanation += " Context requirements need review."
 
     if (
         subject.decision == "review"

@@ -56,10 +56,20 @@ class MismatchGuardTests(unittest.TestCase):
         self.assertEqual(
             check(
                 "Dog",
+                "A dog beside water.",
+                title="Dogs beside rivers",
+            ).decision,
+            "review",
+        )
+
+    def test_home_context_can_pass(self):
+        self.assertEqual(
+            check(
+                "Dog",
                 "A dog in a living room.",
                 title="Dogs at home",
             ).decision,
-            "review",
+            "pass",
         )
 
     def test_low_confidence_prevents_pass(self):

@@ -181,3 +181,156 @@ def evaluate_habitat_context(
         + ", ".join(sorted(required))
         + ".",
     )
+
+
+SEASON_WORDS = re.compile(
+    r"\b(?:winter|wintry|summer|autumn|spring|springtime)\b",
+    re.IGNORECASE,
+)
+COLD_WEATHER = re.compile(
+    r"\b(?:cold|freezing|frozen|icy|ice)\b",
+    re.IGNORECASE,
+)
+SEASON_NEGATED = re.compile(
+    r"\b(?:no|not|without)\s+(?:\w+\s+){0,2}"
+    r"(?:winter|summer|autumn|spring|cold|freezing|frozen"
+    r"|snow(?:y|fall)?|ice|icy)\b"
+    r"|\b(?:snow|winter)[ -]free\b|\bsnowless\b",
+    re.IGNORECASE,
+)
+
+
+def _seasons_in(text: str) -> set[str]:
+    aliases = {"wintry": "winter", "springtime": "spring"}
+    words = {
+        match.group(0).casefold()
+        for match in SEASON_WORDS.finditer(text)
+    }
+    return {aliases.get(word, word) for word in words}
+
+
+def evaluate_season_context(
+    *,
+    post_title: str,
+    post_content: str,
+    image_caption: str,
+    image_attributes: list[str],
+) -> ContextGuardResult:
+    post_text = f"{post_title}\n{post_content}"
+    image_text = "\n".join([image_caption, *image_attributes])
+    requested = _seasons_in(post_text)
+    needs_cold = bool(COLD_WEATHER.search(post_text))
+
+    if not requested and not needs_cold:
+        return ContextGuardResult(
+            "not_applicable",
+            "No season or cold-weather requirement detected.",
+        )
+
+    if len(requested) > 1:
+        return ContextGuardResult(
+            "review",
+            "Post mentions multiple seasons.",
+        )
+
+    if (
+        SEASON_NEGATED.search(post_text)
+        or SEASON_NEGATED.search(image_text)
+    ):
+        return ContextGuardResult(
+            "review",
+            "Negated seasonal wording needs context review.",
+        )
+
+    explanations = []
+    season = next(iter(requested), None)
+
+    if season is not None:
+        observed = _seasons_in(image_text)
+
+        if len(observed) > 1:
+            return ContextGuardResult(
+                "review",
+                "Image metadata mentions multiple seasons.",
+            )
+
+        if observed and season not in observed:
+            return ContextGuardResult(
+                "reject",
+                f"Season mismatch: post requests {season}; "
+                f"image metadata describes {next(iter(observed))}.",
+            )
+
+        if season != "winter" and season not in observed:
+            return ContextGuardResult(
+                "review",
+                f"Image metadata does not confirm {season}.",
+            )
+
+        if season in observed:
+            explanations.append(
+                f"Image metadata confirms {season}."
+            )
+
+    if needs_cold:
+        cold_evidence = (
+            COLD_WEATHER.search(image_text)
+            or WINTER.search(image_text)
+            or SNOW.search(image_text)
+        )
+        if not cold_evidence:
+            return ContextGuardResult(
+                "review",
+                "Image metadata does not confirm cold-weather context.",
+            )
+        explanations.append(
+            "Cold-weather context is supported by image metadata."
+        )
+
+    if not explanations:
+        return ContextGuardResult(
+            "not_applicable",
+            "Winter evidence is evaluated by the winter/snow check.",
+        )
+
+    return ContextGuardResult("pass", " ".join(explanations))
+
+
+def evaluate_context_match(
+    *,
+    post_title: str,
+    post_content: str,
+    image_caption: str,
+    image_attributes: list[str],
+) -> ContextGuardResult:
+    checks = [
+        evaluator(
+            post_title=post_title,
+            post_content=post_content,
+            image_caption=image_caption,
+            image_attributes=image_attributes,
+        )
+        for evaluator in (
+            evaluate_winter_context,
+            evaluate_habitat_context,
+            evaluate_season_context,
+        )
+    ]
+    active = [
+        result
+        for result in checks
+        if result.decision != "not_applicable"
+    ]
+
+    if not active:
+        return ContextGuardResult(
+            "not_applicable",
+            "No supported context requirement was identified.",
+        )
+
+    explanation = " ".join(result.explanation for result in active)
+    if any(result.decision == "reject" for result in active):
+        return ContextGuardResult("reject", explanation)
+    if any(result.decision == "review" for result in active):
+        return ContextGuardResult("review", explanation)
+    return ContextGuardResult("pass", explanation)
