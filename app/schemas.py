@@ -68,3 +68,21 @@ class JobCostSummary(BaseModel):
     reported_total_tokens: int = Field(ge=0)
     cost_usd: float = Field(ge=0)
     models: list[str]
+
+
+class SuggestionResponse(BaseModel):
+    id: int
+    image_id: int
+    image_external_id: str
+    similarity_score: float = Field(
+        ge=-1.0, le=1.0, allow_inf_nan=False
+    )
+    guard_decision: str
+    explanation: str
+
+
+class MatchingResponse(BaseModel):
+    post_id: int
+    created_count: int = Field(ge=0)
+    reused_count: int = Field(ge=0)
+    suggestions: list[SuggestionResponse]
