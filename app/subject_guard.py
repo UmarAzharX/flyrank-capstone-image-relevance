@@ -30,6 +30,21 @@ def _subjects_in(text: str) -> set[str]:
     }
 
 
+DOG_BREED_PATTERNS = {
+    "husky": r"\bhusk(?:y|ies)\b",
+    "malamute": r"\bmalamutes?\b",
+    "german shepherd": r"\bgerman\s+shepherds?\b",
+}
+
+
+def _dog_breeds_in(text: str) -> set[str]:
+    return {
+        breed
+        for breed, pattern in DOG_BREED_PATTERNS.items()
+        if re.search(pattern, text, flags=re.IGNORECASE)
+    }
+
+
 def evaluate_subject_match(
     *,
     post_title: str,
@@ -50,6 +65,7 @@ def evaluate_subject_match(
             ),
         )
 
+    image_description = image_subject
     post_subject = next(iter(post_subjects))
     image_subject = next(iter(image_subjects))
 
@@ -61,6 +77,32 @@ def evaluate_subject_match(
                 f"image describes {image_subject}."
             ),
         )
+
+    if post_subject == "dog":
+        requested = _dog_breeds_in(f"{post_title}\n{post_content}")
+        if len(requested) > 1:
+            return SubjectGuardResult(
+                "review", "Post names multiple supported dog breeds."
+            )
+        if requested:
+            observed = _dog_breeds_in(image_description)
+            if len(observed) != 1:
+                return SubjectGuardResult(
+                    "review",
+                    "Image subject does not confirm one clear dog breed "
+                    "for this breed-specific post.",
+                )
+            wanted = next(iter(requested))
+            actual = next(iter(observed))
+            if wanted != actual:
+                return SubjectGuardResult(
+                    "reject",
+                    f"Dog breed mismatch: post describes {wanted}; "
+                    f"image describes {actual}.",
+                )
+            return SubjectGuardResult(
+                "pass", f"Subject check passed: both describe {wanted}."
+            )
 
     return SubjectGuardResult(
         decision="pass",
