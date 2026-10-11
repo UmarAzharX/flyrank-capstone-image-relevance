@@ -17,6 +17,7 @@ def embed_image(
     *,
     tenant_id: int,
     external_id: str,
+    job_id: int | None = None,
 ) -> tuple[int, bool]:
     with SessionLocal.begin() as db:
         image = db.scalar(
@@ -62,6 +63,7 @@ def embed_image(
             tenant_id=tenant_id,
             owner_type="image",
             owner_id=image.id,
+            **({"job_id": job_id} if job_id is not None else {}),
             text=build_image_embedding_text(metadata),
             title=metadata.subject,
         )

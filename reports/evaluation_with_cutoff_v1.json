@@ -1,0 +1,133 @@
+{
+  "generated_at": "2026-10-10T17:54:56.327845+00:00",
+  "dataset_path": "data/eval_posts_audited_v1.json",
+  "dataset_sha256": "e4d71ffe2d32d367b2d1e12b5850e246caecf8b11b27d3d92d8e78390969a939",
+  "corpus_manifest_sha256": "95fc6b48cdd8766724875d36901c73a13962ffc60d53e1f31a61f4ed27de7073",
+  "embedding_profile": "gemini-embedding-2:768:retrieval:text-v1",
+  "vision_confidence_threshold": 0.8,
+  "similarity_threshold": 0.7,
+  "matching_policy_version": "subject-context-confidence-similarity-v1",
+  "evaluation_stage": "Automated guarded top-1 selection before human review",
+  "metric_definition": "Exact image-ID match; abstentions count as misses in the all-posts metric.",
+  "metrics": {
+    "post_count": 10,
+    "returned_count": 7,
+    "abstained_count": 3,
+    "correct_exact_matches": 7,
+    "top1_exact_match_all_posts": 0.7,
+    "top1_exact_match_returned_posts": 1.0,
+    "coverage": 0.7
+  },
+  "results": [
+    {
+      "post_id": "post_001",
+      "title": "How Red Foxes Adapt to Snowy Winter Habitats",
+      "expected_image_id": "fox_002",
+      "predicted_image_id": "fox_002",
+      "exact_match": true,
+      "similarity_score": 0.7842884471375471,
+      "selection_explanation": "Subject check passed: both describe fox. Winter/snow context is supported by image metadata. Vision confidence 0.990 meets the configured threshold 0.800. Cosine similarity 0.784288 meets the configured cutoff 0.700.",
+      "expected_image_guard": "pass",
+      "expected_image_explanation": "Subject check passed: both describe fox. Winter/snow context is supported by image metadata. Vision confidence 0.990 meets the configured threshold 0.800. Cosine similarity 0.784288 meets the configured cutoff 0.700."
+    },
+    {
+      "post_id": "post_002",
+      "title": "Red Foxes Moving Through Human Landscapes",
+      "expected_image_id": "fox_003",
+      "predicted_image_id": "fox_003",
+      "exact_match": true,
+      "similarity_score": 0.7872741767978279,
+      "selection_explanation": "Subject check passed: both describe fox. Image metadata supports the requested context: road. Vision confidence 0.990 meets the configured threshold 0.800. Cosine similarity 0.787274 meets the configured cutoff 0.700.",
+      "expected_image_guard": "pass",
+      "expected_image_explanation": "Subject check passed: both describe fox. Image metadata supports the requested context: road. Vision confidence 0.990 meets the configured threshold 0.800. Cosine similarity 0.787274 meets the configured cutoff 0.700."
+    },
+    {
+      "post_id": "post_003",
+      "title": "Wolves Hunting Across Winter Landscapes",
+      "expected_image_id": "wolf_003",
+      "predicted_image_id": "wolf_003",
+      "exact_match": true,
+      "similarity_score": 0.7631763714865039,
+      "selection_explanation": "Subject check passed: both describe wolf. Winter/snow context is supported by image metadata. Image metadata confirms winter. Cold-weather context is supported by image metadata. Vision confidence 0.980 meets the configured threshold 0.800. Cosine similarity 0.763176 meets the configured cutoff 0.700.",
+      "expected_image_guard": "pass",
+      "expected_image_explanation": "Subject check passed: both describe wolf. Winter/snow context is supported by image metadata. Image metadata confirms winter. Cold-weather context is supported by image metadata. Vision confidence 0.980 meets the configured threshold 0.800. Cosine similarity 0.763176 meets the configured cutoff 0.700."
+    },
+    {
+      "post_id": "post_004",
+      "title": "A Wolf Resting in Summer Grass",
+      "expected_image_id": "wolf_006",
+      "predicted_image_id": null,
+      "exact_match": false,
+      "similarity_score": null,
+      "selection_explanation": "No eligible suggestions.",
+      "expected_image_guard": "review",
+      "expected_image_explanation": "Subject check passed: both describe wolf. Image metadata supports the requested context: grassland. Image metadata does not confirm summer. Vision confidence 0.990 meets the configured threshold 0.800. Cosine similarity 0.836653 meets the configured cutoff 0.700."
+    },
+    {
+      "post_id": "post_005",
+      "title": "Siberian Huskies Built for Cold Weather",
+      "expected_image_id": "dog_010",
+      "predicted_image_id": "dog_010",
+      "exact_match": true,
+      "similarity_score": 0.7842590652153479,
+      "selection_explanation": "Subject check passed: both describe husky. Cold-weather context is supported by image metadata. Vision confidence 0.990 meets the configured threshold 0.800. Cosine similarity 0.784259 meets the configured cutoff 0.700.",
+      "expected_image_guard": "pass",
+      "expected_image_explanation": "Subject check passed: both describe husky. Cold-weather context is supported by image metadata. Vision confidence 0.990 meets the configured threshold 0.800. Cosine similarity 0.784259 meets the configured cutoff 0.700."
+    },
+    {
+      "post_id": "post_006",
+      "title": "German Shepherd Companions at Home",
+      "expected_image_id": "dog_004",
+      "predicted_image_id": null,
+      "exact_match": false,
+      "similarity_score": null,
+      "selection_explanation": "No eligible suggestions.",
+      "expected_image_guard": "review",
+      "expected_image_explanation": "Subject check passed: both describe german shepherd. Image metadata does not confirm required context: indoor setting. Vision confidence 0.990 meets the configured threshold 0.800. Cosine similarity 0.783527 meets the configured cutoff 0.700."
+    },
+    {
+      "post_id": "post_007",
+      "title": "A Brown Bear Walking Through Autumn Forest",
+      "expected_image_id": "bear_007",
+      "predicted_image_id": "bear_007",
+      "exact_match": true,
+      "similarity_score": 0.8394318048694357,
+      "selection_explanation": "Subject check passed: both describe bear. Image metadata supports the requested context: woodland. Image metadata confirms autumn. Vision confidence 0.990 meets the configured threshold 0.800. Cosine similarity 0.839432 meets the configured cutoff 0.700.",
+      "expected_image_guard": "pass",
+      "expected_image_explanation": "Subject check passed: both describe bear. Image metadata supports the requested context: woodland. Image metadata confirms autumn. Vision confidence 0.990 meets the configured threshold 0.800. Cosine similarity 0.839432 meets the configured cutoff 0.700."
+    },
+    {
+      "post_id": "post_008",
+      "title": "Grizzly Bears in a Snowy Habitat",
+      "expected_image_id": "bear_003",
+      "predicted_image_id": null,
+      "exact_match": false,
+      "similarity_score": null,
+      "selection_explanation": "No eligible suggestions.",
+      "expected_image_guard": "review",
+      "expected_image_explanation": "Image subject confirms bear, but does not confirm the requested grizzly subtype. Winter/snow context is supported by image metadata. Cold-weather context is supported by image metadata. Vision confidence 0.990 meets the configured threshold 0.800. Cosine similarity 0.781844 meets the configured cutoff 0.700."
+    },
+    {
+      "post_id": "post_009",
+      "title": "Close-Up Features of a Wild Deer",
+      "expected_image_id": "deer_003",
+      "predicted_image_id": "deer_003",
+      "exact_match": true,
+      "similarity_score": 0.8488524372397103,
+      "selection_explanation": "Subject check passed: both describe deer. Image metadata supports the requested context: close-up view. Vision confidence 0.990 meets the configured threshold 0.800. Cosine similarity 0.848852 meets the configured cutoff 0.700.",
+      "expected_image_guard": "pass",
+      "expected_image_explanation": "Subject check passed: both describe deer. Image metadata supports the requested context: close-up view. Vision confidence 0.990 meets the configured threshold 0.800. Cosine similarity 0.848852 meets the configured cutoff 0.700."
+    },
+    {
+      "post_id": "post_010",
+      "title": "Deer Grazing in a Green Meadow",
+      "expected_image_id": "deer_007",
+      "predicted_image_id": "deer_007",
+      "exact_match": true,
+      "similarity_score": 0.8642606673940942,
+      "selection_explanation": "Subject check passed: both describe deer. Image metadata supports the requested context: grassland. Vision confidence 0.990 meets the configured threshold 0.800. Cosine similarity 0.864261 meets the configured cutoff 0.700.",
+      "expected_image_guard": "pass",
+      "expected_image_explanation": "Subject check passed: both describe deer. Image metadata supports the requested context: grassland. Vision confidence 0.990 meets the configured threshold 0.800. Cosine similarity 0.864261 meets the configured cutoff 0.700."
+    }
+  ]
+}

@@ -1,8 +1,9 @@
-from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException, Query
+from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException, Path as ApiPath, Query
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.database import get_db
+from app.embedding_worker import run_queued_embedding_batch
 from app.models import AICallCost, ProcessingJob, Tenant
 from app.routes.images import get_demo_tenant
 from app.schemas import JobCostSummary, JobResponse
@@ -45,6 +46,7 @@ def start_one_worker_step(
         .where(
             ProcessingJob.id == job_id,
             ProcessingJob.tenant_id == tenant.id,
+            ProcessingJob.job_type == "vision",
         )
         .with_for_update()
     )
@@ -171,12 +173,12 @@ def resume_job(
         .where(
             ProcessingJob.id == job_id,
             ProcessingJob.tenant_id == tenant.id,
-            ProcessingJob.job_type == "vision",
+            ProcessingJob.job_type.in_(["vision", "embedding"]),
         )
         .with_for_update()
     )
     if job is None:
-        raise HTTPException(status_code=404, detail="Vision job not found")
+        raise HTTPException(status_code=404, detail="Job not found")
 
     if job.status != "failed":
         raise HTTPException(
@@ -188,7 +190,7 @@ def resume_job(
         select(ProcessingJob.id)
         .where(
             ProcessingJob.tenant_id == tenant.id,
-            ProcessingJob.job_type == "vision",
+            ProcessingJob.job_type == job.job_type,
             ProcessingJob.id != job.id,
             ProcessingJob.status.in_(
                 ["pending", "queued", "queued_batch", "running"]
@@ -199,7 +201,7 @@ def resume_job(
     if other_active_job is not None:
         raise HTTPException(
             status_code=409,
-            detail="Another vision job is active",
+            detail="Another job of this type is active",
         )
 
     job.status = "pending"
@@ -208,4 +210,31 @@ def resume_job(
 
     response = JobResponse.model_validate(job)
     db.commit()
+    return response
+
+
+@router.post("/{job_id}/run-embeddings", response_model=JobResponse, status_code=202)
+def start_embedding_batch(
+    background_tasks: BackgroundTasks,
+    job_id: int = ApiPath(ge=1),
+    max_steps: int = Query(default=3, ge=1, le=60),
+    pause_seconds: int = Query(default=15, ge=0, le=60),
+    db: Session = Depends(get_db),
+):
+    tenant = get_demo_tenant(db)
+    job = db.scalar(select(ProcessingJob).where(
+        ProcessingJob.id == job_id, ProcessingJob.tenant_id == tenant.id,
+        ProcessingJob.job_type == "embedding",
+    ).with_for_update())
+    if job is None:
+        raise HTTPException(status_code=404, detail="Embedding job not found")
+    if job.status != "pending":
+        raise HTTPException(status_code=409, detail="Embedding job must be pending before it can be queued")
+    job.status = "queued_batch"
+    job.failure_reason = None
+    db.flush()
+    response = JobResponse.model_validate(job)
+    db.commit()
+    background_tasks.add_task(run_queued_embedding_batch, job_id,
+                              max_steps=max_steps, pause_seconds=pause_seconds)
     return response

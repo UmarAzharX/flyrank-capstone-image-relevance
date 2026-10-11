@@ -1,0 +1,107 @@
+{
+  "checked_at_utc": "2026-10-11T02:27:31.720006+00:00",
+  "scope": "Read-only local repository and recognized secret-pattern scan. Remote visibility and every possible secret format are not established.",
+  "branch": "main",
+  "commit_count": 127,
+  "tracked_files": 85,
+  "untracked_files": 78,
+  "required_files": [
+    {
+      "path": "README.md",
+      "present": true,
+      "tracked": true
+    },
+    {
+      "path": "EVIDENCE.md",
+      "present": true,
+      "tracked": false
+    },
+    {
+      "path": "BUILDLOG.md",
+      "present": true,
+      "tracked": true
+    },
+    {
+      "path": "DESIGN.md",
+      "present": true,
+      "tracked": true
+    },
+    {
+      "path": "capstone.yaml",
+      "present": true,
+      "tracked": false
+    },
+    {
+      "path": "LICENSE",
+      "present": true,
+      "tracked": true
+    },
+    {
+      "path": ".env.example",
+      "present": true,
+      "tracked": false
+    },
+    {
+      "path": "docs/SETUP.md",
+      "present": true,
+      "tracked": false
+    },
+    {
+      "path": "docs/API.md",
+      "present": true,
+      "tracked": false
+    },
+    {
+      "path": "requirements.txt",
+      "present": true,
+      "tracked": true
+    },
+    {
+      "path": "requirements-dev.txt",
+      "present": true,
+      "tracked": false
+    },
+    {
+      "path": "requirements-tested.txt",
+      "present": true,
+      "tracked": false
+    },
+    {
+      "path": "docker-compose.yml",
+      "present": true,
+      "tracked": true
+    },
+    {
+      "path": "data/images.json",
+      "present": true,
+      "tracked": true
+    },
+    {
+      "path": "data/eval_posts.json",
+      "present": true,
+      "tracked": true
+    },
+    {
+      "path": "data/guard_cases.json",
+      "present": true,
+      "tracked": true
+    }
+  ],
+  "app_env_ignored": true,
+  "app_env_tracked": false,
+  "historical_sensitive_paths": [],
+  "recognized_secret_findings": [],
+  "worktree_files_scanned": 163,
+  "historical_blobs_scanned": 194,
+  "remotes": [
+    {
+      "name": "origin",
+      "host": "github.com",
+      "repository": "UmarAzharX/flyrank-capstone-image-relevance",
+      "required_repository_name_matches": true
+    }
+  ],
+  "whitespace_locations": [],
+  "working_tree_clean": false,
+  "no_git_or_database_changes": true
+}

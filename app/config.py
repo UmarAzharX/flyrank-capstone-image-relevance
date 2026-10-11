@@ -23,6 +23,10 @@ class Settings(BaseSettings):
         le=1.0,
     )
 
+    similarity_threshold: float = Field(
+        default=0.70, ge=0.0, le=1.0, allow_inf_nan=False,
+    )
+
     model_config = SettingsConfigDict(
         env_file=Path(__file__).resolve().parent / ".env",
         env_file_encoding="utf-8",

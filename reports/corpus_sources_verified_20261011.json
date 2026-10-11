@@ -1,0 +1,1155 @@
+{
+  "verified_on": "2026-10-11",
+  "origin": "Pexels, confirmed by user",
+  "corpus_records": 50,
+  "distinct_source_photos": 49,
+  "exact_original_bytes": 33,
+  "exact_decoded_pixels": 38,
+  "duplicate_photograph": [
+    "fox_003",
+    "fox_007"
+  ],
+  "source_corrections": [
+    "fox_001",
+    "fox_002",
+    "fox_003"
+  ],
+  "note": "Downloads were made into a separate verification folder. Existing corpus files, AI metadata, vectors, and evaluation results were not changed. Original and verified-download hashes are recorded separately. Small JPEG encoding differences are not evidence of identical historical model inputs.",
+  "images": [
+    {
+      "id": "fox_001",
+      "filename": "fox_001.jpg",
+      "source_page_url": "https://www.pexels.com/photo/a-fox-sitting-outdoors-23914490/",
+      "previous_source_page_url": "https://www.pexels.com/photo/red-fox-in-snowy-winter-setting-outdoors-35986459/",
+      "download_url": "https://images.pexels.com/photos/23914490/pexels-photo-23914490.jpeg?cs=srgb&dl=pexels-tomas-malik-793526-23914490.jpg&fm=jpg",
+      "original_sha256": "0f961d51b357a8c5a5038a8a78c0a8e9e0e5a504c1a3765c3a57b3f51c9996f7",
+      "download_sha256": "0f961d51b357a8c5a5038a8a78c0a8e9e0e5a504c1a3765c3a57b3f51c9996f7",
+      "original_size_bytes": 1731564,
+      "download_size_bytes": 1731564,
+      "dimensions": [
+        2828,
+        4242
+      ],
+      "exact_original_bytes": true,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "fox_002",
+      "filename": "fox_002.jpg",
+      "source_page_url": "https://www.pexels.com/photo/a-brown-and-white-fox-on-snow-covered-ground-7006996/",
+      "previous_source_page_url": "https://www.pexels.com/photo/red-fox-walking-in-snow-20853949/",
+      "download_url": "https://images.pexels.com/photos/7006996/pexels-photo-7006996.jpeg?cs=srgb&dl=pexels-igor65-7006996.jpg&fm=jpg",
+      "original_sha256": "815bada7e791e19e81611a66d83ee901e4fa9ee0c48c6cb36271c0b9dafd4b22",
+      "download_sha256": "815bada7e791e19e81611a66d83ee901e4fa9ee0c48c6cb36271c0b9dafd4b22",
+      "original_size_bytes": 1765889,
+      "download_size_bytes": 1765889,
+      "dimensions": [
+        4533,
+        3851
+      ],
+      "exact_original_bytes": true,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "fox_003",
+      "filename": "fox_003.jpg",
+      "source_page_url": "https://www.pexels.com/photo/brown-fox-walking-on-the-gray-asphalt-road-9681751/",
+      "previous_source_page_url": "https://www.pexels.com/photo/ezo-red-fox-walking-on-road-9681745/",
+      "download_url": "https://images.pexels.com/photos/9681751/pexels-photo-9681751.jpeg?cs=srgb&dl=pexels-erik-mclean-9681751.jpg&fm=jpg",
+      "original_sha256": "e12a4750263a74740b2c40db9d675d60d7d3b34b907374fe57810b1d90febf26",
+      "download_sha256": "447056aff7cfe7c189cd7dfb46ded6ca19f01610b333a8e7b6b1e53d61e997da",
+      "original_size_bytes": 2856074,
+      "download_size_bytes": 2856074,
+      "dimensions": [
+        4901,
+        3267
+      ],
+      "exact_original_bytes": false,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "fox_004",
+      "filename": "fox_004.jpg",
+      "source_page_url": "https://www.pexels.com/photo/wild-red-fox-in-english-woodland-setting-30582092/",
+      "previous_source_page_url": "https://www.pexels.com/photo/wild-red-fox-in-english-woodland-setting-30582092/",
+      "download_url": "https://images.pexels.com/photos/30582092/pexels-photo-30582092.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "7d2c41dccca3476332d4bda6f0c6f0df6265288fef4f236b9e275f33619e87f2",
+      "download_sha256": "b124f6a231f891548160127cea62053717ee180d829abf84254717b572416e3f",
+      "original_size_bytes": 226195,
+      "download_size_bytes": 226195,
+      "dimensions": [
+        1600,
+        1094
+      ],
+      "exact_original_bytes": false,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "fox_005",
+      "filename": "fox_005.jpg",
+      "source_page_url": "https://www.pexels.com/photo/red-fox-walking-in-the-meadow-26655860/",
+      "previous_source_page_url": "https://www.pexels.com/photo/red-fox-walking-in-the-meadow-26655860/",
+      "download_url": "https://images.pexels.com/photos/26655860/pexels-photo-26655860.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "456670cedb241d241202b6abf43c54b462f7346eced26f792a86e02367c0e77d",
+      "download_sha256": "456670cedb241d241202b6abf43c54b462f7346eced26f792a86e02367c0e77d",
+      "original_size_bytes": 240929,
+      "download_size_bytes": 240929,
+      "dimensions": [
+        1600,
+        1068
+      ],
+      "exact_original_bytes": true,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "fox_006",
+      "filename": "fox_006.jpg",
+      "source_page_url": "https://www.pexels.com/photo/a-fox-on-the-grass-11815421/",
+      "previous_source_page_url": "https://www.pexels.com/photo/a-fox-on-the-grass-11815421/",
+      "download_url": "https://images.pexels.com/photos/11815421/pexels-photo-11815421.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "96fd0dff3d50e540a0f11344dc6813d4ed583449ce6783e21d8ac2b6e9e96654",
+      "download_sha256": "96fd0dff3d50e540a0f11344dc6813d4ed583449ce6783e21d8ac2b6e9e96654",
+      "original_size_bytes": 350960,
+      "download_size_bytes": 350960,
+      "dimensions": [
+        1600,
+        1067
+      ],
+      "exact_original_bytes": true,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "fox_007",
+      "filename": "fox_007.jpg",
+      "source_page_url": "https://www.pexels.com/photo/brown-fox-walking-on-the-gray-asphalt-road-9681751/",
+      "previous_source_page_url": "https://www.pexels.com/photo/brown-fox-walking-on-the-gray-asphalt-road-9681751/",
+      "download_url": "https://images.pexels.com/photos/9681751/pexels-photo-9681751.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "8341a2929037385434ee65355231d3c9df9989b2306a2960a875fab2da4f00f3",
+      "download_sha256": "8b57a05d72b7a508727794be5c81432540fc974000117f5ed56b2c4bd0ce9bc5",
+      "original_size_bytes": 311299,
+      "download_size_bytes": 311299,
+      "dimensions": [
+        1600,
+        1067
+      ],
+      "exact_original_bytes": false,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "fox_008",
+      "filename": "fox_008.jpg",
+      "source_page_url": "https://www.pexels.com/photo/a-person-feeding-wild-fox-on-the-road-9681748/",
+      "previous_source_page_url": "https://www.pexels.com/photo/a-person-feeding-wild-fox-on-the-road-9681748/",
+      "download_url": "https://images.pexels.com/photos/9681748/pexels-photo-9681748.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "67407ebc76eafacf025c000cb7ca2466b6ad640700ab0f10d0ebfe7697148120",
+      "download_sha256": "4f8c8f3eeea7090682d104a6d7d2a5f62eb8152844a1b62700ce4d5707f6f026",
+      "original_size_bytes": 234696,
+      "download_size_bytes": 234696,
+      "dimensions": [
+        1600,
+        1067
+      ],
+      "exact_original_bytes": false,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "fox_009",
+      "filename": "fox_009.jpg",
+      "source_page_url": "https://www.pexels.com/photo/a-brown-fox-walking-on-the-seashore-11404071/",
+      "previous_source_page_url": "https://www.pexels.com/photo/a-brown-fox-walking-on-the-seashore-11404071/",
+      "download_url": "https://images.pexels.com/photos/11404071/pexels-photo-11404071.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "0a3d3d3a2a758a166c53d406224c4a1c7e820551c4556c5c1bdf29fcc821ae2d",
+      "download_sha256": "0a3d3d3a2a758a166c53d406224c4a1c7e820551c4556c5c1bdf29fcc821ae2d",
+      "original_size_bytes": 331110,
+      "download_size_bytes": 331110,
+      "dimensions": [
+        1600,
+        1067
+      ],
+      "exact_original_bytes": true,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "fox_010",
+      "filename": "fox_010.jpg",
+      "source_page_url": "https://www.pexels.com/photo/fox-on-road-18149194/",
+      "previous_source_page_url": "https://www.pexels.com/photo/fox-on-road-18149194/",
+      "download_url": "https://images.pexels.com/photos/18149194/pexels-photo-18149194.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "252bc6ea24f8ba3ca2c0f7122bcd89798d518f30e215f1c33a48d5605869f12b",
+      "download_sha256": "252bc6ea24f8ba3ca2c0f7122bcd89798d518f30e215f1c33a48d5605869f12b",
+      "original_size_bytes": 187092,
+      "download_size_bytes": 187092,
+      "dimensions": [
+        1600,
+        2000
+      ],
+      "exact_original_bytes": true,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "wolf_001",
+      "filename": "wolf_001.jpg",
+      "source_page_url": "https://www.pexels.com/photo/brown-wolf-682375/",
+      "previous_source_page_url": "https://www.pexels.com/photo/brown-wolf-682375/",
+      "download_url": "https://images.pexels.com/photos/682375/pexels-photo-682375.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "9799f9884cd94db8c283b95069c7f256d18bf4abfa159b2663d96788f71d4872",
+      "download_sha256": "9799f9884cd94db8c283b95069c7f256d18bf4abfa159b2663d96788f71d4872",
+      "original_size_bytes": 248255,
+      "download_size_bytes": 248255,
+      "dimensions": [
+        1600,
+        1063
+      ],
+      "exact_original_bytes": true,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "wolf_002",
+      "filename": "wolf_002.jpg",
+      "source_page_url": "https://www.pexels.com/photo/gray-wolf-in-close-up-photography-11800382/",
+      "previous_source_page_url": "https://www.pexels.com/photo/gray-wolf-in-close-up-photography-11800382/",
+      "download_url": "https://images.pexels.com/photos/11800382/pexels-photo-11800382.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "7ac928336f44f673af0012944c246a9483a1e71abedc42bc13f9006df9ef23ba",
+      "download_sha256": "7ac928336f44f673af0012944c246a9483a1e71abedc42bc13f9006df9ef23ba",
+      "original_size_bytes": 1102294,
+      "download_size_bytes": 1102294,
+      "dimensions": [
+        1600,
+        2426
+      ],
+      "exact_original_bytes": true,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "wolf_003",
+      "filename": "wolf_003.jpg",
+      "source_page_url": "https://www.pexels.com/photo/close-up-portrait-of-a-majestic-wolf-in-snow-36129725/",
+      "previous_source_page_url": "https://www.pexels.com/photo/close-up-portrait-of-a-majestic-wolf-in-snow-36129725/",
+      "download_url": "https://images.pexels.com/photos/36129725/pexels-photo-36129725.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "5c9c183c35ce6bc185505f567aead7fcf1287ec62a9efef091662b58588c0877",
+      "download_sha256": "efeb2be482463277a2a5da874d05a551df4c2ddcdffaf86abb0db7da04de7263",
+      "original_size_bytes": 566439,
+      "download_size_bytes": 566472,
+      "dimensions": [
+        1600,
+        2000
+      ],
+      "exact_original_bytes": false,
+      "exact_decoded_pixels": false,
+      "pixel_rms_0_to_255": [
+        0.023802573390287025,
+        0.023802573390287025,
+        0.023802573390287025
+      ]
+    },
+    {
+      "id": "wolf_004",
+      "filename": "wolf_004.jpg",
+      "source_page_url": "https://www.pexels.com/photo/captivating-portrait-of-a-wolf-in-natural-setting-38113471/",
+      "previous_source_page_url": "https://www.pexels.com/photo/captivating-portrait-of-a-wolf-in-natural-setting-38113471/",
+      "download_url": "https://images.pexels.com/photos/38113471/pexels-photo-38113471.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "c93d93c5b25a438d6438fb8e5e51b92b80aeedf669670ea395797c1cfdd45c9b",
+      "download_sha256": "7377afd86e18cb013aa8cc59b0cb0eba4b57d231a663a76a585f839412b4a989",
+      "original_size_bytes": 462365,
+      "download_size_bytes": 462386,
+      "dimensions": [
+        1600,
+        2405
+      ],
+      "exact_original_bytes": false,
+      "exact_decoded_pixels": false,
+      "pixel_rms_0_to_255": [
+        0.04264512948282686,
+        0.035691855148037965,
+        0.0327848146989437
+      ]
+    },
+    {
+      "id": "wolf_005",
+      "filename": "wolf_005.jpg",
+      "source_page_url": "https://www.pexels.com/photo/brown-and-white-wolf-in-tilt-shift-lens-10787211/",
+      "previous_source_page_url": "https://www.pexels.com/photo/brown-and-white-wolf-in-tilt-shift-lens-10787211/",
+      "download_url": "https://images.pexels.com/photos/10787211/pexels-photo-10787211.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "c39389021aeeef6f7d00735297649253b2aa6d30a2c7e9b4e6cd9763602ce07c",
+      "download_sha256": "c39389021aeeef6f7d00735297649253b2aa6d30a2c7e9b4e6cd9763602ce07c",
+      "original_size_bytes": 563786,
+      "download_size_bytes": 563786,
+      "dimensions": [
+        1600,
+        2416
+      ],
+      "exact_original_bytes": true,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "wolf_006",
+      "filename": "wolf_006.jpg",
+      "source_page_url": "https://www.pexels.com/photo/a-wolf-on-the-grass-7402790/",
+      "previous_source_page_url": "https://www.pexels.com/photo/a-wolf-on-the-grass-7402790/",
+      "download_url": "https://images.pexels.com/photos/7402790/pexels-photo-7402790.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "d520535389b7ad62c1a00eff3a71471d1776ec86838a1a0662302ba29a26bd5d",
+      "download_sha256": "d520535389b7ad62c1a00eff3a71471d1776ec86838a1a0662302ba29a26bd5d",
+      "original_size_bytes": 420096,
+      "download_size_bytes": 420096,
+      "dimensions": [
+        1600,
+        1200
+      ],
+      "exact_original_bytes": true,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "wolf_007",
+      "filename": "wolf_007.jpg",
+      "source_page_url": "https://www.pexels.com/photo/majestic-grey-wolf-in-natural-habitat-33091531/",
+      "previous_source_page_url": "https://www.pexels.com/photo/majestic-grey-wolf-in-natural-habitat-33091531/",
+      "download_url": "https://images.pexels.com/photos/33091531/pexels-photo-33091531.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "58ee71b880b01e66c3a10cda79733f6f2511c511925d64fcfcaba8abcab7a400",
+      "download_sha256": "6371f9e3e7a2dd8f9a18e67cfab564ea55497ba49760488b6051311d1e33303d",
+      "original_size_bytes": 190053,
+      "download_size_bytes": 190126,
+      "dimensions": [
+        1600,
+        1067
+      ],
+      "exact_original_bytes": false,
+      "exact_decoded_pixels": false,
+      "pixel_rms_0_to_255": [
+        0.07913840153767414,
+        0.06938104989367516,
+        0.07053650340800272
+      ]
+    },
+    {
+      "id": "wolf_008",
+      "filename": "wolf_008.jpg",
+      "source_page_url": "https://www.pexels.com/photo/photo-of-a-wolf-9455411/",
+      "previous_source_page_url": "https://www.pexels.com/photo/photo-of-a-wolf-9455411/",
+      "download_url": "https://images.pexels.com/photos/9455411/pexels-photo-9455411.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "b7caf372d73042e200123253c251170437accd045ef8624f6f227bee8d35f696",
+      "download_sha256": "b7caf372d73042e200123253c251170437accd045ef8624f6f227bee8d35f696",
+      "original_size_bytes": 374413,
+      "download_size_bytes": 374413,
+      "dimensions": [
+        1600,
+        2000
+      ],
+      "exact_original_bytes": true,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "wolf_009",
+      "filename": "wolf_009.jpg",
+      "source_page_url": "https://www.pexels.com/photo/standing-woolf-looking-15578846/",
+      "previous_source_page_url": "https://www.pexels.com/photo/standing-woolf-looking-15578846/",
+      "download_url": "https://images.pexels.com/photos/15578846/pexels-photo-15578846.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "591a2b4e3a52bdcddcbeaa6aa6703568b2a35483ec13b22ba52da158b728294d",
+      "download_sha256": "591a2b4e3a52bdcddcbeaa6aa6703568b2a35483ec13b22ba52da158b728294d",
+      "original_size_bytes": 658859,
+      "download_size_bytes": 658859,
+      "dimensions": [
+        1600,
+        2400
+      ],
+      "exact_original_bytes": true,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "wolf_010",
+      "filename": "wolf_010.jpg",
+      "source_page_url": "https://www.pexels.com/photo/woolf-hearing-careful-15578850/",
+      "previous_source_page_url": "https://www.pexels.com/photo/woolf-hearing-careful-15578850/",
+      "download_url": "https://images.pexels.com/photos/15578850/pexels-photo-15578850.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "e52812468b5b4e1f5592db26acd3b9b980d917889efb2354cb6282dcf299bf81",
+      "download_sha256": "e52812468b5b4e1f5592db26acd3b9b980d917889efb2354cb6282dcf299bf81",
+      "original_size_bytes": 707792,
+      "download_size_bytes": 707792,
+      "dimensions": [
+        1600,
+        2400
+      ],
+      "exact_original_bytes": true,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "dog_001",
+      "filename": "dog_001.jpg",
+      "source_page_url": "https://www.pexels.com/photo/white-and-gray-siberian-husky-6748158/",
+      "previous_source_page_url": "https://www.pexels.com/photo/white-and-gray-siberian-husky-6748158/",
+      "download_url": "https://images.pexels.com/photos/6748158/pexels-photo-6748158.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "0f7aa17c182577dca10a83fc98c16ffb39e02a096a501b37ead007146303f1e8",
+      "download_sha256": "0f7aa17c182577dca10a83fc98c16ffb39e02a096a501b37ead007146303f1e8",
+      "original_size_bytes": 181103,
+      "download_size_bytes": 181103,
+      "dimensions": [
+        1600,
+        982
+      ],
+      "exact_original_bytes": true,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "dog_002",
+      "filename": "dog_002.jpg",
+      "source_page_url": "https://www.pexels.com/photo/alaskan-malamute-sitting-outdoors-in-almere-33757471/",
+      "previous_source_page_url": "https://www.pexels.com/photo/alaskan-malamute-sitting-outdoors-in-almere-33757471/",
+      "download_url": "https://images.pexels.com/photos/33757471/pexels-photo-33757471.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "10bf2a136b2b710df17045ec602c60be67616d8f1a72d0cd959bfce09ef39c62",
+      "download_sha256": "c6e046367c01ec2ca3334a9f9dad76d104cd310268ccc4c41ac5c7a95665bc6e",
+      "original_size_bytes": 339454,
+      "download_size_bytes": 339426,
+      "dimensions": [
+        1600,
+        2000
+      ],
+      "exact_original_bytes": false,
+      "exact_decoded_pixels": false,
+      "pixel_rms_0_to_255": [
+        0.02824557487465957,
+        0.02688517249340238,
+        0.03510252839896295
+      ]
+    },
+    {
+      "id": "dog_003",
+      "filename": "dog_003.jpg",
+      "source_page_url": "https://www.pexels.com/photo/close-up-of-playful-siberian-husky-with-human-hand-31203405/",
+      "previous_source_page_url": "https://www.pexels.com/photo/close-up-of-playful-siberian-husky-with-human-hand-31203405/",
+      "download_url": "https://images.pexels.com/photos/31203405/pexels-photo-31203405.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "4e407890654991f0b9ffe44a21aa3935b132c0cb228ed2cd8b930f109f821f18",
+      "download_sha256": "4aa49f51afeae577e49c35451da8df110ae1190a3e375064ca4ed227e9d87e7e",
+      "original_size_bytes": 242010,
+      "download_size_bytes": 241993,
+      "dimensions": [
+        1600,
+        2400
+      ],
+      "exact_original_bytes": false,
+      "exact_decoded_pixels": false,
+      "pixel_rms_0_to_255": [
+        0.06245623467677186,
+        0.05320214986257604,
+        0.05849902064707294
+      ]
+    },
+    {
+      "id": "dog_004",
+      "filename": "dog_004.jpg",
+      "source_page_url": "https://www.pexels.com/photo/close-up-photo-of-a-german-shepherd-11453931/",
+      "previous_source_page_url": "https://www.pexels.com/photo/close-up-photo-of-a-german-shepherd-11453931/",
+      "download_url": "https://images.pexels.com/photos/11453931/pexels-photo-11453931.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "40f668a84fefb1561162a326dc82f430ae0379eab7550b80b8d01a8d4cb5c575",
+      "download_sha256": "f187b0954fd0196be95341d42b02b72520bf340ab59d79cd711f9436f2610a0b",
+      "original_size_bytes": 202599,
+      "download_size_bytes": 202582,
+      "dimensions": [
+        1600,
+        1067
+      ],
+      "exact_original_bytes": false,
+      "exact_decoded_pixels": false,
+      "pixel_rms_0_to_255": [
+        0.04538830693854851,
+        0.043091085064039074,
+        0.05488656616392671
+      ]
+    },
+    {
+      "id": "dog_005",
+      "filename": "dog_005.jpg",
+      "source_page_url": "https://www.pexels.com/photo/photo-of-a-german-shepherd-yawning-11503732/",
+      "previous_source_page_url": "https://www.pexels.com/photo/photo-of-a-german-shepherd-yawning-11503732/",
+      "download_url": "https://images.pexels.com/photos/11503732/pexels-photo-11503732.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "cce9f5996b0ad9ec75d0fd6d9d6ed31add635f92ada8b17034eeb9b3c60428cc",
+      "download_sha256": "f490ceb2f439efc9263ef29e5c5d77828004f77669ebe341e9200c1f3bd89cba",
+      "original_size_bytes": 272810,
+      "download_size_bytes": 272887,
+      "dimensions": [
+        1600,
+        1067
+      ],
+      "exact_original_bytes": false,
+      "exact_decoded_pixels": false,
+      "pixel_rms_0_to_255": [
+        0.048465197321920304,
+        0.05095733003735657,
+        0.0741082568912292
+      ]
+    },
+    {
+      "id": "dog_006",
+      "filename": "dog_006.jpg",
+      "source_page_url": "https://www.pexels.com/photo/dog-standing-on-seashore-13084932/",
+      "previous_source_page_url": "https://www.pexels.com/photo/dog-standing-on-seashore-13084932/",
+      "download_url": "https://images.pexels.com/photos/13084932/pexels-photo-13084932.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "29840f3c234b741d9403fefb15d97cf8ac12a5278a97c0f59a7877d1f3fef392",
+      "download_sha256": "29840f3c234b741d9403fefb15d97cf8ac12a5278a97c0f59a7877d1f3fef392",
+      "original_size_bytes": 182388,
+      "download_size_bytes": 182388,
+      "dimensions": [
+        1600,
+        1067
+      ],
+      "exact_original_bytes": true,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "dog_007",
+      "filename": "dog_007.jpg",
+      "source_page_url": "https://www.pexels.com/photo/pair-of-malamute-alaskan-dogs-8730429/",
+      "previous_source_page_url": "https://www.pexels.com/photo/pair-of-malamute-alaskan-dogs-8730429/",
+      "download_url": "https://images.pexels.com/photos/8730429/pexels-photo-8730429.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "3903d5281c1446c9d16666e37ef538a90e1db6452424afd261577ce8e3c1c7fc",
+      "download_sha256": "3903d5281c1446c9d16666e37ef538a90e1db6452424afd261577ce8e3c1c7fc",
+      "original_size_bytes": 332669,
+      "download_size_bytes": 332669,
+      "dimensions": [
+        1600,
+        1067
+      ],
+      "exact_original_bytes": true,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "dog_008",
+      "filename": "dog_008.jpg",
+      "source_page_url": "https://www.pexels.com/photo/adorable-siberian-husky-puppy-resting-on-stairs-36904634/",
+      "previous_source_page_url": "https://www.pexels.com/photo/adorable-siberian-husky-puppy-resting-on-stairs-36904634/",
+      "download_url": "https://images.pexels.com/photos/36904634/pexels-photo-36904634.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "5b069ca0c9f35934c2342123eb71ea144de0ebc610818edb7ad27aa540ffb5ea",
+      "download_sha256": "5b069ca0c9f35934c2342123eb71ea144de0ebc610818edb7ad27aa540ffb5ea",
+      "original_size_bytes": 215528,
+      "download_size_bytes": 215528,
+      "dimensions": [
+        1600,
+        964
+      ],
+      "exact_original_bytes": true,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "dog_009",
+      "filename": "dog_009.jpg",
+      "source_page_url": "https://www.pexels.com/photo/german-shepherd-sitting-on-grass-18892323/",
+      "previous_source_page_url": "https://www.pexels.com/photo/german-shepherd-sitting-on-grass-18892323/",
+      "download_url": "https://images.pexels.com/photos/18892323/pexels-photo-18892323.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "e9f0289158320fe44e9fa7afa750df154ab1c2428f67875de9aa1023a57c7a3b",
+      "download_sha256": "e9f0289158320fe44e9fa7afa750df154ab1c2428f67875de9aa1023a57c7a3b",
+      "original_size_bytes": 470163,
+      "download_size_bytes": 470163,
+      "dimensions": [
+        1600,
+        2406
+      ],
+      "exact_original_bytes": true,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "dog_010",
+      "filename": "dog_010.jpg",
+      "source_page_url": "https://www.pexels.com/photo/dogs-on-snow-during-winter-11764467/",
+      "previous_source_page_url": "https://www.pexels.com/photo/dogs-on-snow-during-winter-11764467/",
+      "download_url": "https://images.pexels.com/photos/11764467/pexels-photo-11764467.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "90b6029c62bb9d1736239bb02d62af9322d14068b3048d87924e9a1cbe4fe68f",
+      "download_sha256": "90b6029c62bb9d1736239bb02d62af9322d14068b3048d87924e9a1cbe4fe68f",
+      "original_size_bytes": 295942,
+      "download_size_bytes": 295942,
+      "dimensions": [
+        1600,
+        1067
+      ],
+      "exact_original_bytes": true,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "bear_001",
+      "filename": "bear_001.jpg",
+      "source_page_url": "https://www.pexels.com/photo/black-bear-near-road-in-forest-24589420/",
+      "previous_source_page_url": "https://www.pexels.com/photo/black-bear-near-road-in-forest-24589420/",
+      "download_url": "https://images.pexels.com/photos/24589420/pexels-photo-24589420.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "0701eea2197ea5a7aae2164ae50607881862da0b84ae8c11147c98e4797bf29d",
+      "download_sha256": "0701eea2197ea5a7aae2164ae50607881862da0b84ae8c11147c98e4797bf29d",
+      "original_size_bytes": 242908,
+      "download_size_bytes": 242908,
+      "dimensions": [
+        1600,
+        1067
+      ],
+      "exact_original_bytes": true,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "bear_002",
+      "filename": "bear_002.jpg",
+      "source_page_url": "https://www.pexels.com/photo/brown-bear-in-scenic-mountain-landscape-39460761/",
+      "previous_source_page_url": "https://www.pexels.com/photo/brown-bear-in-scenic-mountain-landscape-39460761/",
+      "download_url": "https://images.pexels.com/photos/39460761/pexels-photo-39460761.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "3c96b8e039d6cc3daf187b2f06433848ae94b7eec53df1933823538ec54b1d02",
+      "download_sha256": "3c96b8e039d6cc3daf187b2f06433848ae94b7eec53df1933823538ec54b1d02",
+      "original_size_bytes": 998298,
+      "download_size_bytes": 998298,
+      "dimensions": [
+        1600,
+        2181
+      ],
+      "exact_original_bytes": true,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "bear_003",
+      "filename": "bear_003.jpg",
+      "source_page_url": "https://www.pexels.com/photo/grizzly-bear-in-winter-17830898/",
+      "previous_source_page_url": "https://www.pexels.com/photo/grizzly-bear-in-winter-17830898/",
+      "download_url": "https://images.pexels.com/photos/17830898/pexels-photo-17830898.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "38be7e3a072bacec811256fd05b9344a96a46116e52446eb65057d310e66e93a",
+      "download_sha256": "38be7e3a072bacec811256fd05b9344a96a46116e52446eb65057d310e66e93a",
+      "original_size_bytes": 445896,
+      "download_size_bytes": 445896,
+      "dimensions": [
+        1600,
+        2400
+      ],
+      "exact_original_bytes": true,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "bear_004",
+      "filename": "bear_004.jpg",
+      "source_page_url": "https://www.pexels.com/photo/close-up-of-a-grizzly-bear-17646622/",
+      "previous_source_page_url": "https://www.pexels.com/photo/close-up-of-a-grizzly-bear-17646622/",
+      "download_url": "https://images.pexels.com/photos/17646622/pexels-photo-17646622.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "ef331ceafe0c418aaa1d5e56b881255263f9afd5296dbd472708096a46d55301",
+      "download_sha256": "ef331ceafe0c418aaa1d5e56b881255263f9afd5296dbd472708096a46d55301",
+      "original_size_bytes": 161018,
+      "download_size_bytes": 161018,
+      "dimensions": [
+        1600,
+        1067
+      ],
+      "exact_original_bytes": true,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "bear_005",
+      "filename": "bear_005.jpg",
+      "source_page_url": "https://www.pexels.com/photo/brown-bear-3048718/",
+      "previous_source_page_url": "https://www.pexels.com/photo/brown-bear-3048718/",
+      "download_url": "https://images.pexels.com/photos/3048718/pexels-photo-3048718.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "6b2ee0e0026a6525436aa1d32c9e0ca20268aa0aa21ad5da28554fae188b642d",
+      "download_sha256": "6b2ee0e0026a6525436aa1d32c9e0ca20268aa0aa21ad5da28554fae188b642d",
+      "original_size_bytes": 329143,
+      "download_size_bytes": 329143,
+      "dimensions": [
+        1600,
+        1067
+      ],
+      "exact_original_bytes": true,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "bear_006",
+      "filename": "bear_006.jpg",
+      "source_page_url": "https://www.pexels.com/photo/standing-bear-in-captivity-20612302/",
+      "previous_source_page_url": "https://www.pexels.com/photo/standing-bear-in-captivity-20612302/",
+      "download_url": "https://images.pexels.com/photos/20612302/pexels-photo-20612302.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "5a7396cb43c7930ba6a364e4de27926c128da2da56274043338f43890bd9f39e",
+      "download_sha256": "37d70255d35dba020dae2735102644090ccfc07aae3985df0e9b57e3a619264b",
+      "original_size_bytes": 401879,
+      "download_size_bytes": 401914,
+      "dimensions": [
+        1600,
+        2000
+      ],
+      "exact_original_bytes": false,
+      "exact_decoded_pixels": false,
+      "pixel_rms_0_to_255": [
+        0.13874662158049111,
+        0.12048340134640954,
+        0.16816658407662327
+      ]
+    },
+    {
+      "id": "bear_007",
+      "filename": "bear_007.jpg",
+      "source_page_url": "https://www.pexels.com/photo/bear-walking-in-autumn-forest-17202569/",
+      "previous_source_page_url": "https://www.pexels.com/photo/bear-walking-in-autumn-forest-17202569/",
+      "download_url": "https://images.pexels.com/photos/17202569/pexels-photo-17202569.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "f740db17339bf38c575146caafce72cf4c371ba7e862554f978b00c6272afdf4",
+      "download_sha256": "f740db17339bf38c575146caafce72cf4c371ba7e862554f978b00c6272afdf4",
+      "original_size_bytes": 992647,
+      "download_size_bytes": 992647,
+      "dimensions": [
+        1600,
+        2133
+      ],
+      "exact_original_bytes": true,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "bear_008",
+      "filename": "bear_008.jpg",
+      "source_page_url": "https://www.pexels.com/photo/brown-bear-in-swedish-countryside-grassland-31451543/",
+      "previous_source_page_url": "https://www.pexels.com/photo/brown-bear-in-swedish-countryside-grassland-31451543/",
+      "download_url": "https://images.pexels.com/photos/31451543/pexels-photo-31451543.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "549033339ffc2a98509f6998cf241b826b240a9c1d2539e51791785890e543a5",
+      "download_sha256": "36d57d866290a74c1c185c5bba9b44a54889fab0987059ef88e1f8d08c259db7",
+      "original_size_bytes": 360461,
+      "download_size_bytes": 360465,
+      "dimensions": [
+        1600,
+        1041
+      ],
+      "exact_original_bytes": false,
+      "exact_decoded_pixels": false,
+      "pixel_rms_0_to_255": [
+        0.039050940893020275,
+        0.03541472419377881,
+        0.04741770767298452
+      ]
+    },
+    {
+      "id": "bear_009",
+      "filename": "bear_009.jpg",
+      "source_page_url": "https://www.pexels.com/photo/brown-bear-in-lush-green-mountain-landscape-39296878/",
+      "previous_source_page_url": "https://www.pexels.com/photo/brown-bear-in-lush-green-mountain-landscape-39296878/",
+      "download_url": "https://images.pexels.com/photos/39296878/pexels-photo-39296878.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "e50a8060812908dd8e2d9ffe8c736de51947b04482a956c2c4f9f03bdaec9297",
+      "download_sha256": "e50a8060812908dd8e2d9ffe8c736de51947b04482a956c2c4f9f03bdaec9297",
+      "original_size_bytes": 871086,
+      "download_size_bytes": 871086,
+      "dimensions": [
+        1600,
+        2845
+      ],
+      "exact_original_bytes": true,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "bear_010",
+      "filename": "bear_010.jpg",
+      "source_page_url": "https://www.pexels.com/photo/black-bears-on-tree-branches-13206702/",
+      "previous_source_page_url": "https://www.pexels.com/photo/black-bears-on-tree-branches-13206702/",
+      "download_url": "https://images.pexels.com/photos/13206702/pexels-photo-13206702.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "99eba3dd1631f8e91a0ad51a6bae60e31271b75b94592e6aca196af2dc4f107d",
+      "download_sha256": "dc3e338c3a04821afdf3b3f373732a2826f610dbb22b53d2a6eee33b275872e0",
+      "original_size_bytes": 462957,
+      "download_size_bytes": 462962,
+      "dimensions": [
+        1600,
+        1067
+      ],
+      "exact_original_bytes": false,
+      "exact_decoded_pixels": false,
+      "pixel_rms_0_to_255": [
+        0.1112255996640097,
+        0.09606845029206142,
+        0.13127635630402418
+      ]
+    },
+    {
+      "id": "deer_001",
+      "filename": "deer_001.jpg",
+      "source_page_url": "https://www.pexels.com/photo/young-deer-in-sunlit-forest-clearing-37284372/",
+      "previous_source_page_url": "https://www.pexels.com/photo/young-deer-in-sunlit-forest-clearing-37284372/",
+      "download_url": "https://images.pexels.com/photos/37284372/pexels-photo-37284372.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "3770e26a524f49d4d2c9b4cfc8bedf182ae696a4adab3b233054f380fe36279d",
+      "download_sha256": "3770e26a524f49d4d2c9b4cfc8bedf182ae696a4adab3b233054f380fe36279d",
+      "original_size_bytes": 271331,
+      "download_size_bytes": 271331,
+      "dimensions": [
+        1600,
+        1067
+      ],
+      "exact_original_bytes": true,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "deer_002",
+      "filename": "deer_002.jpg",
+      "source_page_url": "https://www.pexels.com/photo/deer-on-a-grass-field-16924950/",
+      "previous_source_page_url": "https://www.pexels.com/photo/deer-on-a-grass-field-16924950/",
+      "download_url": "https://images.pexels.com/photos/16924950/pexels-photo-16924950.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "9772ff4af7840ecbedeb0ddd7a526405d8d90d4a4c2ab61c60e5330bd7d8e912",
+      "download_sha256": "9772ff4af7840ecbedeb0ddd7a526405d8d90d4a4c2ab61c60e5330bd7d8e912",
+      "original_size_bytes": 519715,
+      "download_size_bytes": 519715,
+      "dimensions": [
+        1600,
+        1067
+      ],
+      "exact_original_bytes": true,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "deer_003",
+      "filename": "deer_003.jpg",
+      "source_page_url": "https://www.pexels.com/photo/close-up-portrait-of-a-deer-in-natural-habitat-31805554/",
+      "previous_source_page_url": "https://www.pexels.com/photo/close-up-portrait-of-a-deer-in-natural-habitat-31805554/",
+      "download_url": "https://images.pexels.com/photos/31805554/pexels-photo-31805554.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "803ed2edf4c9ac10f930089975c0445230a334791fa39ffe7061773ba8e309eb",
+      "download_sha256": "0ca5ab077833beaae1689b70e61570c41aaeca18470620fc12af7d3aa434c4c6",
+      "original_size_bytes": 376908,
+      "download_size_bytes": 376907,
+      "dimensions": [
+        1600,
+        2400
+      ],
+      "exact_original_bytes": false,
+      "exact_decoded_pixels": false,
+      "pixel_rms_0_to_255": [
+        0.066675129671165,
+        0.06229549876729993,
+        0.07835549331944336
+      ]
+    },
+    {
+      "id": "deer_004",
+      "filename": "deer_004.jpg",
+      "source_page_url": "https://www.pexels.com/photo/brown-deer-with-large-antlers-10906728/",
+      "previous_source_page_url": "https://www.pexels.com/photo/brown-deer-with-large-antlers-10906728/",
+      "download_url": "https://images.pexels.com/photos/10906728/pexels-photo-10906728.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "77e8d005d9f7aa54b8657887b0d654b681fd34b971cfb9be79c2f4a33d328184",
+      "download_sha256": "77e8d005d9f7aa54b8657887b0d654b681fd34b971cfb9be79c2f4a33d328184",
+      "original_size_bytes": 325127,
+      "download_size_bytes": 325127,
+      "dimensions": [
+        1600,
+        1066
+      ],
+      "exact_original_bytes": true,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "deer_005",
+      "filename": "deer_005.jpg",
+      "source_page_url": "https://www.pexels.com/photo/deer-standing-on-spring-meadow-at-dusk-16989632/",
+      "previous_source_page_url": "https://www.pexels.com/photo/deer-standing-on-spring-meadow-at-dusk-16989632/",
+      "download_url": "https://images.pexels.com/photos/16989632/pexels-photo-16989632.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "300e5b38572ef20d94bee336b4a57ade3204dd25d4a902dcc8f9c4304504bb6c",
+      "download_sha256": "300e5b38572ef20d94bee336b4a57ade3204dd25d4a902dcc8f9c4304504bb6c",
+      "original_size_bytes": 637655,
+      "download_size_bytes": 637655,
+      "dimensions": [
+        1600,
+        2842
+      ],
+      "exact_original_bytes": true,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "deer_006",
+      "filename": "deer_006.jpg",
+      "source_page_url": "https://www.pexels.com/photo/two-deers-on-the-road-on-a-foggy-day-4589064/",
+      "previous_source_page_url": "https://www.pexels.com/photo/two-deers-on-the-road-on-a-foggy-day-4589064/",
+      "download_url": "https://images.pexels.com/photos/4589064/pexels-photo-4589064.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "0510a45ad695b920a5fcf84dcb3f9c1f680e17718773d01bd8cbde6ba5a8e7f2",
+      "download_sha256": "e55bbf974183210c98c14b6a87cc1f77d442c946139889be5ae0d53c5da81041",
+      "original_size_bytes": 165535,
+      "download_size_bytes": 165535,
+      "dimensions": [
+        1600,
+        1067
+      ],
+      "exact_original_bytes": false,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "deer_007",
+      "filename": "deer_007.jpg",
+      "source_page_url": "https://www.pexels.com/photo/brown-deer-eating-on-green-grass-field-6227522/",
+      "previous_source_page_url": "https://www.pexels.com/photo/brown-deer-eating-on-green-grass-field-6227522/",
+      "download_url": "https://images.pexels.com/photos/6227522/pexels-photo-6227522.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "93d460834f63950f4b99c80da0091a40cc8f10bc4cd7a7dc442fe78a863d0600",
+      "download_sha256": "93d460834f63950f4b99c80da0091a40cc8f10bc4cd7a7dc442fe78a863d0600",
+      "original_size_bytes": 436652,
+      "download_size_bytes": 436652,
+      "dimensions": [
+        1600,
+        1067
+      ],
+      "exact_original_bytes": true,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "deer_008",
+      "filename": "deer_008.jpg",
+      "source_page_url": "https://www.pexels.com/photo/brown-deers-in-the-forest-during-golden-hour-10812818/",
+      "previous_source_page_url": "https://www.pexels.com/photo/brown-deers-in-the-forest-during-golden-hour-10812818/",
+      "download_url": "https://images.pexels.com/photos/10812818/pexels-photo-10812818.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "69e2983ab756ef03164a49fab962cd178affc97cf6ad860adcad6bfca72043b8",
+      "download_sha256": "69e2983ab756ef03164a49fab962cd178affc97cf6ad860adcad6bfca72043b8",
+      "original_size_bytes": 298036,
+      "download_size_bytes": 298036,
+      "dimensions": [
+        1600,
+        1071
+      ],
+      "exact_original_bytes": true,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "deer_009",
+      "filename": "deer_009.jpg",
+      "source_page_url": "https://www.pexels.com/photo/brown-deers-on-snow-covered-ground-6759887/",
+      "previous_source_page_url": "https://www.pexels.com/photo/brown-deers-on-snow-covered-ground-6759887/",
+      "download_url": "https://images.pexels.com/photos/6759887/pexels-photo-6759887.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "ee28c1bedf68588871e985e65da0ba1984d06e57992de67ebd58c5d954651f36",
+      "download_sha256": "ee28c1bedf68588871e985e65da0ba1984d06e57992de67ebd58c5d954651f36",
+      "original_size_bytes": 464341,
+      "download_size_bytes": 464341,
+      "dimensions": [
+        1600,
+        2400
+      ],
+      "exact_original_bytes": true,
+      "exact_decoded_pixels": true,
+      "pixel_rms_0_to_255": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "deer_010",
+      "filename": "deer_010.jpg",
+      "source_page_url": "https://www.pexels.com/photo/a-herd-of-red-deers-in-the-forest-7037046/",
+      "previous_source_page_url": "https://www.pexels.com/photo/a-herd-of-red-deers-in-the-forest-7037046/",
+      "download_url": "https://images.pexels.com/photos/7037046/pexels-photo-7037046.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "original_sha256": "a4de13680083476c11d88defabfa38eb7f8307cb9546c0e691afcc295f4fbe9f",
+      "download_sha256": "9d34458b41e32e00df18d4d352d3dd18233b8c44809ca880c610d3bc509cf881",
+      "original_size_bytes": 480810,
+      "download_size_bytes": 480826,
+      "dimensions": [
+        1600,
+        1369
+      ],
+      "exact_original_bytes": false,
+      "exact_decoded_pixels": false,
+      "pixel_rms_0_to_255": [
+        0.08769739291801386,
+        0.07143972311987813,
+        0.07349972545577642
+      ]
+    }
+  ],
+  "download_workflow": {
+    "live_first_download": {
+      "verified": 50,
+      "new_downloads": 50,
+      "gemini_requests": 0,
+      "database_writes": 0
+    },
+    "repeat_download": {
+      "verified": 50,
+      "new_downloads": 0
+    },
+    "original_corpus_verify_only": {
+      "verified": 50,
+      "new_downloads": 0
+    },
+    "offline_suite": {
+      "tests": 246,
+      "passed": true
+    },
+    "database_source_sync": "Verified by live GET /images on 2026-10-11: all three corrected source links are present."
+  },
+  "source_sync_api_verification": [
+    {
+      "external_id": "fox_001",
+      "source_page_url": "https://www.pexels.com/photo/a-fox-sitting-outdoors-23914490/"
+    },
+    {
+      "external_id": "fox_002",
+      "source_page_url": "https://www.pexels.com/photo/a-brown-and-white-fox-on-snow-covered-ground-7006996/"
+    },
+    {
+      "external_id": "fox_003",
+      "source_page_url": "https://www.pexels.com/photo/brown-fox-walking-on-the-gray-asphalt-road-9681751/"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+# Install with: python -m pip install -r requirements-dev.txt -c requirements-tested.txt
+-r requirements.txt
+# API tests use the HTTP client verified with the current Starlette TestClient.
+httpx==0.28.1

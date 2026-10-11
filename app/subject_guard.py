@@ -4,7 +4,7 @@ from typing import Literal
 
 
 SUBJECT_PATTERNS = {
-    "fox": r"\bfox(?:es)?\b",
+    "fox": r"\b(?:fox(?:es)?|vulpes\s+vulpes)\b",
     "wolf": r"\b(?:wolf|wolves)\b",
     "dog": (
         r"\b(?:dogs?|husk(?:y|ies)|malamutes?"
@@ -102,6 +102,27 @@ def evaluate_subject_match(
                 )
             return SubjectGuardResult(
                 "pass", f"Subject check passed: both describe {wanted}."
+            )
+
+    if post_subject == "bear":
+        grizzly_pattern = r"\bgrizzl(?:y|ies)\b"
+        requires_grizzly = re.search(
+            grizzly_pattern,
+            f"{post_title}\n{post_content}",
+            flags=re.IGNORECASE,
+        )
+        confirms_grizzly = re.search(
+            grizzly_pattern, image_description, flags=re.IGNORECASE
+        )
+        if requires_grizzly and not confirms_grizzly:
+            return SubjectGuardResult(
+                "review",
+                "Image subject confirms bear, but does not confirm "
+                "the requested grizzly subtype.",
+            )
+        if requires_grizzly:
+            return SubjectGuardResult(
+                "pass", "Subject check passed: both describe grizzly."
             )
 
     return SubjectGuardResult(

@@ -1,0 +1,18 @@
+{
+  "evidence_source": "User-pasted terminal output",
+  "registration_tests": {
+    "passed": 9,
+    "seconds": 0.489
+  },
+  "candidate": "confidence_probe_fog_001",
+  "image_id": 53,
+  "call_slot": 117,
+  "subject": "deer",
+  "confidence": 0.95,
+  "status": "tagged",
+  "low_confidence": false,
+  "reported_cost_usd": 0.0,
+  "declared_tier": "free",
+  "low_confidence_acceptance_satisfied": false,
+  "scope": "Single-image processing outside the original 50-image corpus and ten-post evaluation"
+}

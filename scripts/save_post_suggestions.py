@@ -6,7 +6,7 @@ from sqlalchemy import select
 
 from app.database import SessionLocal
 from app.models import Image, Suggestion, Tenant
-from app.suggestion_processing import save_post_suggestions
+from app.suggestion_processing import generate_post_suggestions
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -37,12 +37,15 @@ def main() -> None:
             if tenant_id is None:
                 raise LookupError("Demo tenant not found.")
 
-        saved_ids, created_count = save_post_suggestions(
+        result = generate_post_suggestions(
             tenant_id=tenant_id,
             external_id=args.external_id,
             corpus_ids=corpus_ids,
             limit=args.top_k,
         )
+
+        saved_ids = result.saved_ids
+        created_count = result.created_count
 
         with SessionLocal() as db:
             rows = db.execute(
@@ -77,11 +80,15 @@ def main() -> None:
         ) from None
 
     print("Post:", args.external_id)
+    print("Match status:", result.match_status)
+    print("Candidates checked:", result.candidates_checked)
     print("Created suggestions:", created_count)
     print("Reused suggestions:", len(saved_ids) - created_count)
 
     if not rows:
-        print("No eligible suggestions to save.")
+        print("No confident match.")
+        for reason in result.no_match_reasons:
+            print("Reason:", reason)
         return
 
     print("Suggestions saved and read back from PostgreSQL.")

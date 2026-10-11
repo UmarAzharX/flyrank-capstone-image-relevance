@@ -1,0 +1,262 @@
+{
+  "generated_at": "2026-10-11T00:30:49.871842+00:00",
+  "base_url": "http://127.0.0.1:8000",
+  "loaded_limits": {
+    "title_max": 255,
+    "content_max": 100000,
+    "filename_max": 255,
+    "post_extra_fields_allowed": false,
+    "image_extra_fields_allowed": false
+  },
+  "cases": [
+    {
+      "case": "blank_post_title",
+      "path": "/posts",
+      "http_status": 422,
+      "target_field": "title",
+      "target_validation_error_present": true,
+      "error_locations": [
+        [
+          "body",
+          "external_id"
+        ],
+        [
+          "body",
+          "title"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "case": "blank_post_content",
+      "path": "/posts",
+      "http_status": 422,
+      "target_field": "content",
+      "target_validation_error_present": true,
+      "error_locations": [
+        [
+          "body",
+          "external_id"
+        ],
+        [
+          "body",
+          "content"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "case": "oversized_post_title",
+      "path": "/posts",
+      "http_status": 422,
+      "target_field": "title",
+      "target_validation_error_present": true,
+      "error_locations": [
+        [
+          "body",
+          "external_id"
+        ],
+        [
+          "body",
+          "title"
+        ],
+        [
+          "body",
+          "content"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "case": "oversized_post_content",
+      "path": "/posts",
+      "http_status": 422,
+      "target_field": "content",
+      "target_validation_error_present": true,
+      "error_locations": [
+        [
+          "body",
+          "external_id"
+        ],
+        [
+          "body",
+          "content"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "case": "oversized_external_id",
+      "path": "/posts",
+      "http_status": 422,
+      "target_field": "external_id",
+      "target_validation_error_present": true,
+      "error_locations": [
+        [
+          "body",
+          "external_id"
+        ],
+        [
+          "body",
+          "content"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "case": "incorrect_post_field_type",
+      "path": "/posts",
+      "http_status": 422,
+      "target_field": "title",
+      "target_validation_error_present": true,
+      "error_locations": [
+        [
+          "body",
+          "external_id"
+        ],
+        [
+          "body",
+          "title"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "case": "unexpected_tenant_field",
+      "path": "/posts",
+      "http_status": 422,
+      "target_field": "tenant_id",
+      "target_validation_error_present": true,
+      "error_locations": [
+        [
+          "body",
+          "external_id"
+        ],
+        [
+          "body",
+          "tenant_id"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "case": "blank_image_source",
+      "path": "/images",
+      "http_status": 422,
+      "target_field": "source",
+      "target_validation_error_present": true,
+      "error_locations": [
+        [
+          "body",
+          "source"
+        ],
+        [
+          "body",
+          "source_page_url"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "case": "oversized_image_filename",
+      "path": "/images",
+      "http_status": 422,
+      "target_field": "filename",
+      "target_validation_error_present": true,
+      "error_locations": [
+        [
+          "body",
+          "filename"
+        ],
+        [
+          "body",
+          "source_page_url"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "case": "image_path_traversal",
+      "path": "/images",
+      "http_status": 422,
+      "target_field": "filename",
+      "target_validation_error_present": true,
+      "error_locations": [
+        [
+          "body",
+          "filename"
+        ],
+        [
+          "body",
+          "source_page_url"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "case": "reserved_windows_filename",
+      "path": "/images",
+      "http_status": 422,
+      "target_field": "filename",
+      "target_validation_error_present": true,
+      "error_locations": [
+        [
+          "body",
+          "filename"
+        ],
+        [
+          "body",
+          "source_page_url"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "case": "unsupported_image_format",
+      "path": "/images",
+      "http_status": 422,
+      "target_field": "filename",
+      "target_validation_error_present": true,
+      "error_locations": [
+        [
+          "body",
+          "filename"
+        ],
+        [
+          "body",
+          "source_page_url"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "case": "non_http_source_url",
+      "path": "/images",
+      "http_status": 422,
+      "target_field": "source_page_url",
+      "target_validation_error_present": true,
+      "error_locations": [
+        [
+          "body",
+          "external_id"
+        ],
+        [
+          "body",
+          "source_page_url"
+        ]
+      ],
+      "passed": true
+    }
+  ],
+  "record_ids_unchanged": true,
+  "record_counts": {
+    "/images": 52,
+    "/posts": 13
+  },
+  "gemini_requests_sent_by_probe": 0,
+  "passed": true,
+  "limits": [
+    "Every request deliberately omitted a required field as a safety guard.",
+    "IDs were compared before and after; this is not a database concurrency test."
+  ]
+}

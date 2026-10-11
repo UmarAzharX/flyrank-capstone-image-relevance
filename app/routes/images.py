@@ -30,7 +30,12 @@ router = APIRouter(
 
 @router.get("", response_model=list[ImageResponse])
 def list_images(db: Session = Depends(get_db)):
-    images = db.scalars(select(Image).order_by(Image.id)).all()
+    tenant = get_demo_tenant(db)
+    images = db.scalars(
+        select(Image)
+        .where(Image.tenant_id == tenant.id)
+        .order_by(Image.id)
+    ).all()
     return images
 
 
@@ -67,7 +72,13 @@ def create_image(
 
 @router.get("/{image_id}", response_model=ImageResponse)
 def get_image(image_id: int, db: Session = Depends(get_db)):
-    image = db.get(Image, image_id)
+    tenant = get_demo_tenant(db)
+    image = db.scalar(
+        select(Image).where(
+            Image.id == image_id,
+            Image.tenant_id == tenant.id,
+        )
+    )
     if image is None:
         raise HTTPException(
             status_code=404,

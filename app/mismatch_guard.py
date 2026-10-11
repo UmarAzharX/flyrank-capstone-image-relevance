@@ -4,6 +4,7 @@ from typing import Literal
 from app.confidence_guard import evaluate_vision_confidence
 from app.context_guard import evaluate_context_match
 from app.subject_guard import evaluate_subject_match
+from app.similarity_guard import evaluate_similarity
 
 
 @dataclass(frozen=True)
@@ -21,6 +22,8 @@ def evaluate_mismatch(
     image_attributes: list[str],
     image_confidence: float | None,
     confidence_threshold: float,
+    similarity_score: float | None,
+    similarity_threshold: float,
 ) -> MismatchGuardResult:
     subject = evaluate_subject_match(
         post_title=post_title,
@@ -38,13 +41,22 @@ def evaluate_mismatch(
         threshold=confidence_threshold,
     )
 
+    similarity = evaluate_similarity(
+        score=similarity_score, threshold=similarity_threshold,
+    )
+
     explanation = " ".join([
         subject.explanation,
         context.explanation,
         confidence.explanation,
+        similarity.explanation,
     ])
 
-    if subject.decision == "reject" or context.decision == "reject":
+    if (
+        subject.decision == "reject"
+        or context.decision == "reject"
+        or similarity.decision == "reject"
+    ):
         return MismatchGuardResult("reject", explanation)
 
     if context.decision == "not_applicable":
@@ -54,6 +66,7 @@ def evaluate_mismatch(
         subject.decision == "review"
         or context.decision in {"review", "not_applicable"}
         or confidence.decision == "review"
+        or similarity.decision == "review"
     ):
         return MismatchGuardResult("review", explanation)
 

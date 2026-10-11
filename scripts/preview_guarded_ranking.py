@@ -76,6 +76,8 @@ def main() -> None:
                     image_attributes=item.attributes,
                     image_confidence=item.confidence,
                     confidence_threshold=settings.vision_confidence_threshold,
+                    similarity_score=item.similarity_score,
+                    similarity_threshold=settings.similarity_threshold,
                 ),
             )
             for item in ranked

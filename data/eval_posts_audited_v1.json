@@ -1,0 +1,62 @@
+[
+  {
+    "id": "post_001",
+    "title": "How Red Foxes Adapt to Snowy Winter Habitats",
+    "content": "Red foxes use their dense winter coats and flexible hunting behavior to survive in snowy habitats.",
+    "expected_image_id": "fox_002"
+  },
+  {
+    "id": "post_002",
+    "title": "Red Foxes Moving Through Human Landscapes",
+    "content": "Red foxes can travel along roads and other human-shaped landscapes while searching for food and shelter.",
+    "expected_image_id": "fox_003"
+  },
+  {
+    "id": "post_003",
+    "title": "Wolves Hunting Across Winter Landscapes",
+    "content": "Wolves use their thick coats, keen senses, and endurance to move through cold snowy environments.",
+    "expected_image_id": "wolf_003"
+  },
+  {
+    "id": "post_004",
+    "title": "A Wolf Resting in Summer Grass",
+    "content": "A gray wolf can blend into open grassland while resting and watching its surroundings.",
+    "expected_image_id": "wolf_006"
+  },
+  {
+    "id": "post_005",
+    "title": "Siberian Huskies Built for Cold Weather",
+    "content": "Siberian huskies have dense coats and athletic bodies adapted for activity in cold climates.",
+    "expected_image_id": "dog_010"
+  },
+  {
+    "id": "post_006",
+    "title": "German Shepherd Companions at Home",
+    "content": "German shepherds are intelligent, loyal dogs that can relax comfortably in a home environment.",
+    "expected_image_id": "dog_004"
+  },
+  {
+    "id": "post_007",
+    "title": "A Brown Bear Walking Through Autumn Forest",
+    "content": "Brown bears navigate woodland habitats while searching for food among fallen leaves and trees.",
+    "expected_image_id": "bear_007"
+  },
+  {
+    "id": "post_008",
+    "title": "Grizzly Bears in a Snowy Habitat",
+    "content": "Grizzly bears remain active in cold regions, where their thick fur helps insulate them in snowy surroundings.",
+    "expected_image_id": "bear_003"
+  },
+  {
+    "id": "post_009",
+    "title": "Close-Up Features of a Wild Deer",
+    "content": "A close view of a deer reveals its alert eye, textured coat, and distinctive facial features.",
+    "expected_image_id": "deer_003"
+  },
+  {
+    "id": "post_010",
+    "title": "Deer Grazing in a Green Meadow",
+    "content": "Deer graze on meadow grasses in open fields, using their antlers and hearing to stay alert while feeding.",
+    "expected_image_id": "deer_007"
+  }
+]

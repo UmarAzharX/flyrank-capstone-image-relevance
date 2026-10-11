@@ -16,6 +16,7 @@ def embed_post(
     *,
     tenant_id: int,
     external_id: str,
+    job_id: int | None = None,
 ) -> tuple[int, bool]:
     with SessionLocal.begin() as db:
         post = db.scalar(
@@ -52,6 +53,7 @@ def embed_post(
             tenant_id=tenant_id,
             owner_type="post",
             owner_id=post.id,
+            **({"job_id": job_id} if job_id is not None else {}),
             text=build_post_embedding_text(
                 title=post.title,
                 content=post.content,

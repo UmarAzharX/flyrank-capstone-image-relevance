@@ -18,6 +18,8 @@ def check(
         image_attributes=[],
         image_confidence=confidence,
         confidence_threshold=threshold,
+        similarity_score=0.9,
+        similarity_threshold=0.7,
     )
 
 

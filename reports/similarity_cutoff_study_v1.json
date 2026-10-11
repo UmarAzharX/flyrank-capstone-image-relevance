@@ -1,0 +1,877 @@
+{
+  "generated_at": "2026-10-10T16:27:59.735709+00:00",
+  "dataset_path": "data/eval_posts_audited_v1.json",
+  "dataset_sha256": "e4d71ffe2d32d367b2d1e12b5850e246caecf8b11b27d3d92d8e78390969a939",
+  "negative_pairs_sha256": "ce05ccda4ac7964b214ae4b31fe7d81e90d1c9c6433ed7f41f9faa7b1b2df5f5",
+  "negative_pair_label_method": "AI-assisted selection by named animal subject, using inspected local photos and source descriptions; chosen before measuring these pair scores. All non-reference images are NOT assumed negative.",
+  "corpus_manifest_sha256": "95fc6b48cdd8766724875d36901c73a13962ffc60d53e1f31a61f4ed27de7073",
+  "embedding_profile": "gemini-embedding-2:768:retrieval:text-v1",
+  "vision_confidence_threshold": 0.8,
+  "study_scope": "Development-set diagnostics: 10 reference pairs and 10 subject-mismatch pairs; same-subject/context negatives are not covered. No live policy changes.",
+  "pairs": [
+    {
+      "post_id": "post_001",
+      "image_id": "fox_002",
+      "relevant": true,
+      "similarity_score": 0.7842884471375471,
+      "reason": "Audited dataset reference; known policy/metadata limitations remain."
+    },
+    {
+      "post_id": "post_001",
+      "image_id": "wolf_003",
+      "relevant": false,
+      "similarity_score": 0.6823458965046234,
+      "reason": "Fox article; source identifies wolf."
+    },
+    {
+      "post_id": "post_002",
+      "image_id": "fox_003",
+      "relevant": true,
+      "similarity_score": 0.7872741767978279,
+      "reason": "Audited dataset reference; known policy/metadata limitations remain."
+    },
+    {
+      "post_id": "post_002",
+      "image_id": "wolf_003",
+      "relevant": false,
+      "similarity_score": 0.6142814546090181,
+      "reason": "Fox article; source identifies wolf."
+    },
+    {
+      "post_id": "post_003",
+      "image_id": "wolf_003",
+      "relevant": true,
+      "similarity_score": 0.7631763714865039,
+      "reason": "Audited dataset reference; known policy/metadata limitations remain."
+    },
+    {
+      "post_id": "post_003",
+      "image_id": "dog_010",
+      "relevant": false,
+      "similarity_score": 0.715927430973668,
+      "reason": "Wolf article; source identifies Siberian Huskies."
+    },
+    {
+      "post_id": "post_004",
+      "image_id": "wolf_006",
+      "relevant": true,
+      "similarity_score": 0.8366532416260605,
+      "reason": "Audited dataset reference; known policy/metadata limitations remain."
+    },
+    {
+      "post_id": "post_004",
+      "image_id": "dog_010",
+      "relevant": false,
+      "similarity_score": 0.643742755485812,
+      "reason": "Wolf article; source identifies Siberian Huskies."
+    },
+    {
+      "post_id": "post_005",
+      "image_id": "dog_010",
+      "relevant": true,
+      "similarity_score": 0.7842590652153479,
+      "reason": "Audited dataset reference; known policy/metadata limitations remain."
+    },
+    {
+      "post_id": "post_005",
+      "image_id": "wolf_003",
+      "relevant": false,
+      "similarity_score": 0.6931904795008667,
+      "reason": "Siberian Husky article; source identifies wolf."
+    },
+    {
+      "post_id": "post_006",
+      "image_id": "dog_004",
+      "relevant": true,
+      "similarity_score": 0.783526995852172,
+      "reason": "Audited dataset reference; known policy/metadata limitations remain."
+    },
+    {
+      "post_id": "post_006",
+      "image_id": "dog_010",
+      "relevant": false,
+      "similarity_score": 0.677680625412184,
+      "reason": "German Shepherd article; source identifies Siberian Huskies."
+    },
+    {
+      "post_id": "post_007",
+      "image_id": "bear_007",
+      "relevant": true,
+      "similarity_score": 0.8394318048694357,
+      "reason": "Audited dataset reference; known policy/metadata limitations remain."
+    },
+    {
+      "post_id": "post_007",
+      "image_id": "fox_002",
+      "relevant": false,
+      "similarity_score": 0.6575952376544966,
+      "reason": "Bear article; source identifies red fox."
+    },
+    {
+      "post_id": "post_008",
+      "image_id": "bear_003",
+      "relevant": true,
+      "similarity_score": 0.7818438468412638,
+      "reason": "Audited dataset reference; known policy/metadata limitations remain."
+    },
+    {
+      "post_id": "post_008",
+      "image_id": "fox_002",
+      "relevant": false,
+      "similarity_score": 0.6898985364294457,
+      "reason": "Grizzly article; source identifies red fox."
+    },
+    {
+      "post_id": "post_009",
+      "image_id": "deer_003",
+      "relevant": true,
+      "similarity_score": 0.8488524372397103,
+      "reason": "Audited dataset reference; known policy/metadata limitations remain."
+    },
+    {
+      "post_id": "post_009",
+      "image_id": "fox_002",
+      "relevant": false,
+      "similarity_score": 0.6633232034477338,
+      "reason": "Deer article; source identifies red fox."
+    },
+    {
+      "post_id": "post_010",
+      "image_id": "deer_007",
+      "relevant": true,
+      "similarity_score": 0.8642606673940942,
+      "reason": "Audited dataset reference; known policy/metadata limitations remain."
+    },
+    {
+      "post_id": "post_010",
+      "image_id": "fox_002",
+      "relevant": false,
+      "similarity_score": 0.6080405620373801,
+      "reason": "Deer article; source identifies red fox."
+    }
+  ],
+  "sweep": [
+    {
+      "cutoff": 0.5,
+      "reference_pair_count": 10,
+      "reference_pairs_above_cutoff": 10,
+      "negative_pair_count": 10,
+      "negative_pairs_above_cutoff": 10,
+      "baseline_guard_pass_candidate_count": 11,
+      "guard_pass_candidates_above_cutoff": 11,
+      "guard_pass_candidates_removed": [],
+      "guarded_top1_metrics": {
+        "post_count": 10,
+        "returned_count": 7,
+        "abstained_count": 3,
+        "correct_exact_matches": 7,
+        "top1_exact_match_all_posts": 0.7,
+        "top1_exact_match_returned_posts": 1.0,
+        "coverage": 0.7
+      },
+      "predictions": [
+        {
+          "post_id": "post_001",
+          "expected_image_id": "fox_002",
+          "predicted_image_id": "fox_002"
+        },
+        {
+          "post_id": "post_002",
+          "expected_image_id": "fox_003",
+          "predicted_image_id": "fox_003"
+        },
+        {
+          "post_id": "post_003",
+          "expected_image_id": "wolf_003",
+          "predicted_image_id": "wolf_003"
+        },
+        {
+          "post_id": "post_004",
+          "expected_image_id": "wolf_006",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_005",
+          "expected_image_id": "dog_010",
+          "predicted_image_id": "dog_010"
+        },
+        {
+          "post_id": "post_006",
+          "expected_image_id": "dog_004",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_007",
+          "expected_image_id": "bear_007",
+          "predicted_image_id": "bear_007"
+        },
+        {
+          "post_id": "post_008",
+          "expected_image_id": "bear_003",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_009",
+          "expected_image_id": "deer_003",
+          "predicted_image_id": "deer_003"
+        },
+        {
+          "post_id": "post_010",
+          "expected_image_id": "deer_007",
+          "predicted_image_id": "deer_007"
+        }
+      ]
+    },
+    {
+      "cutoff": 0.6,
+      "reference_pair_count": 10,
+      "reference_pairs_above_cutoff": 10,
+      "negative_pair_count": 10,
+      "negative_pairs_above_cutoff": 10,
+      "baseline_guard_pass_candidate_count": 11,
+      "guard_pass_candidates_above_cutoff": 11,
+      "guard_pass_candidates_removed": [],
+      "guarded_top1_metrics": {
+        "post_count": 10,
+        "returned_count": 7,
+        "abstained_count": 3,
+        "correct_exact_matches": 7,
+        "top1_exact_match_all_posts": 0.7,
+        "top1_exact_match_returned_posts": 1.0,
+        "coverage": 0.7
+      },
+      "predictions": [
+        {
+          "post_id": "post_001",
+          "expected_image_id": "fox_002",
+          "predicted_image_id": "fox_002"
+        },
+        {
+          "post_id": "post_002",
+          "expected_image_id": "fox_003",
+          "predicted_image_id": "fox_003"
+        },
+        {
+          "post_id": "post_003",
+          "expected_image_id": "wolf_003",
+          "predicted_image_id": "wolf_003"
+        },
+        {
+          "post_id": "post_004",
+          "expected_image_id": "wolf_006",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_005",
+          "expected_image_id": "dog_010",
+          "predicted_image_id": "dog_010"
+        },
+        {
+          "post_id": "post_006",
+          "expected_image_id": "dog_004",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_007",
+          "expected_image_id": "bear_007",
+          "predicted_image_id": "bear_007"
+        },
+        {
+          "post_id": "post_008",
+          "expected_image_id": "bear_003",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_009",
+          "expected_image_id": "deer_003",
+          "predicted_image_id": "deer_003"
+        },
+        {
+          "post_id": "post_010",
+          "expected_image_id": "deer_007",
+          "predicted_image_id": "deer_007"
+        }
+      ]
+    },
+    {
+      "cutoff": 0.65,
+      "reference_pair_count": 10,
+      "reference_pairs_above_cutoff": 10,
+      "negative_pair_count": 10,
+      "negative_pairs_above_cutoff": 7,
+      "baseline_guard_pass_candidate_count": 11,
+      "guard_pass_candidates_above_cutoff": 11,
+      "guard_pass_candidates_removed": [],
+      "guarded_top1_metrics": {
+        "post_count": 10,
+        "returned_count": 7,
+        "abstained_count": 3,
+        "correct_exact_matches": 7,
+        "top1_exact_match_all_posts": 0.7,
+        "top1_exact_match_returned_posts": 1.0,
+        "coverage": 0.7
+      },
+      "predictions": [
+        {
+          "post_id": "post_001",
+          "expected_image_id": "fox_002",
+          "predicted_image_id": "fox_002"
+        },
+        {
+          "post_id": "post_002",
+          "expected_image_id": "fox_003",
+          "predicted_image_id": "fox_003"
+        },
+        {
+          "post_id": "post_003",
+          "expected_image_id": "wolf_003",
+          "predicted_image_id": "wolf_003"
+        },
+        {
+          "post_id": "post_004",
+          "expected_image_id": "wolf_006",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_005",
+          "expected_image_id": "dog_010",
+          "predicted_image_id": "dog_010"
+        },
+        {
+          "post_id": "post_006",
+          "expected_image_id": "dog_004",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_007",
+          "expected_image_id": "bear_007",
+          "predicted_image_id": "bear_007"
+        },
+        {
+          "post_id": "post_008",
+          "expected_image_id": "bear_003",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_009",
+          "expected_image_id": "deer_003",
+          "predicted_image_id": "deer_003"
+        },
+        {
+          "post_id": "post_010",
+          "expected_image_id": "deer_007",
+          "predicted_image_id": "deer_007"
+        }
+      ]
+    },
+    {
+      "cutoff": 0.7,
+      "reference_pair_count": 10,
+      "reference_pairs_above_cutoff": 10,
+      "negative_pair_count": 10,
+      "negative_pairs_above_cutoff": 1,
+      "baseline_guard_pass_candidate_count": 11,
+      "guard_pass_candidates_above_cutoff": 11,
+      "guard_pass_candidates_removed": [],
+      "guarded_top1_metrics": {
+        "post_count": 10,
+        "returned_count": 7,
+        "abstained_count": 3,
+        "correct_exact_matches": 7,
+        "top1_exact_match_all_posts": 0.7,
+        "top1_exact_match_returned_posts": 1.0,
+        "coverage": 0.7
+      },
+      "predictions": [
+        {
+          "post_id": "post_001",
+          "expected_image_id": "fox_002",
+          "predicted_image_id": "fox_002"
+        },
+        {
+          "post_id": "post_002",
+          "expected_image_id": "fox_003",
+          "predicted_image_id": "fox_003"
+        },
+        {
+          "post_id": "post_003",
+          "expected_image_id": "wolf_003",
+          "predicted_image_id": "wolf_003"
+        },
+        {
+          "post_id": "post_004",
+          "expected_image_id": "wolf_006",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_005",
+          "expected_image_id": "dog_010",
+          "predicted_image_id": "dog_010"
+        },
+        {
+          "post_id": "post_006",
+          "expected_image_id": "dog_004",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_007",
+          "expected_image_id": "bear_007",
+          "predicted_image_id": "bear_007"
+        },
+        {
+          "post_id": "post_008",
+          "expected_image_id": "bear_003",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_009",
+          "expected_image_id": "deer_003",
+          "predicted_image_id": "deer_003"
+        },
+        {
+          "post_id": "post_010",
+          "expected_image_id": "deer_007",
+          "predicted_image_id": "deer_007"
+        }
+      ]
+    },
+    {
+      "cutoff": 0.75,
+      "reference_pair_count": 10,
+      "reference_pairs_above_cutoff": 10,
+      "negative_pair_count": 10,
+      "negative_pairs_above_cutoff": 0,
+      "baseline_guard_pass_candidate_count": 11,
+      "guard_pass_candidates_above_cutoff": 10,
+      "guard_pass_candidates_removed": [
+        {
+          "post_id": "post_002",
+          "image_id": "fox_008",
+          "similarity_score": 0.7441864675953473
+        }
+      ],
+      "guarded_top1_metrics": {
+        "post_count": 10,
+        "returned_count": 7,
+        "abstained_count": 3,
+        "correct_exact_matches": 7,
+        "top1_exact_match_all_posts": 0.7,
+        "top1_exact_match_returned_posts": 1.0,
+        "coverage": 0.7
+      },
+      "predictions": [
+        {
+          "post_id": "post_001",
+          "expected_image_id": "fox_002",
+          "predicted_image_id": "fox_002"
+        },
+        {
+          "post_id": "post_002",
+          "expected_image_id": "fox_003",
+          "predicted_image_id": "fox_003"
+        },
+        {
+          "post_id": "post_003",
+          "expected_image_id": "wolf_003",
+          "predicted_image_id": "wolf_003"
+        },
+        {
+          "post_id": "post_004",
+          "expected_image_id": "wolf_006",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_005",
+          "expected_image_id": "dog_010",
+          "predicted_image_id": "dog_010"
+        },
+        {
+          "post_id": "post_006",
+          "expected_image_id": "dog_004",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_007",
+          "expected_image_id": "bear_007",
+          "predicted_image_id": "bear_007"
+        },
+        {
+          "post_id": "post_008",
+          "expected_image_id": "bear_003",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_009",
+          "expected_image_id": "deer_003",
+          "predicted_image_id": "deer_003"
+        },
+        {
+          "post_id": "post_010",
+          "expected_image_id": "deer_007",
+          "predicted_image_id": "deer_007"
+        }
+      ]
+    },
+    {
+      "cutoff": 0.8,
+      "reference_pair_count": 10,
+      "reference_pairs_above_cutoff": 4,
+      "negative_pair_count": 10,
+      "negative_pairs_above_cutoff": 0,
+      "baseline_guard_pass_candidate_count": 11,
+      "guard_pass_candidates_above_cutoff": 3,
+      "guard_pass_candidates_removed": [
+        {
+          "post_id": "post_001",
+          "image_id": "fox_002",
+          "similarity_score": 0.7842884471375471
+        },
+        {
+          "post_id": "post_002",
+          "image_id": "fox_003",
+          "similarity_score": 0.7872741767978279
+        },
+        {
+          "post_id": "post_002",
+          "image_id": "fox_007",
+          "similarity_score": 0.7832271819828164
+        },
+        {
+          "post_id": "post_002",
+          "image_id": "fox_008",
+          "similarity_score": 0.7441864675953473
+        },
+        {
+          "post_id": "post_003",
+          "image_id": "wolf_003",
+          "similarity_score": 0.7631763714865039
+        },
+        {
+          "post_id": "post_005",
+          "image_id": "dog_010",
+          "similarity_score": 0.7842590652153479
+        },
+        {
+          "post_id": "post_010",
+          "image_id": "deer_002",
+          "similarity_score": 0.7979062949719335
+        },
+        {
+          "post_id": "post_010",
+          "image_id": "deer_005",
+          "similarity_score": 0.7631086883015614
+        }
+      ],
+      "guarded_top1_metrics": {
+        "post_count": 10,
+        "returned_count": 3,
+        "abstained_count": 7,
+        "correct_exact_matches": 3,
+        "top1_exact_match_all_posts": 0.3,
+        "top1_exact_match_returned_posts": 1.0,
+        "coverage": 0.3
+      },
+      "predictions": [
+        {
+          "post_id": "post_001",
+          "expected_image_id": "fox_002",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_002",
+          "expected_image_id": "fox_003",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_003",
+          "expected_image_id": "wolf_003",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_004",
+          "expected_image_id": "wolf_006",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_005",
+          "expected_image_id": "dog_010",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_006",
+          "expected_image_id": "dog_004",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_007",
+          "expected_image_id": "bear_007",
+          "predicted_image_id": "bear_007"
+        },
+        {
+          "post_id": "post_008",
+          "expected_image_id": "bear_003",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_009",
+          "expected_image_id": "deer_003",
+          "predicted_image_id": "deer_003"
+        },
+        {
+          "post_id": "post_010",
+          "expected_image_id": "deer_007",
+          "predicted_image_id": "deer_007"
+        }
+      ]
+    },
+    {
+      "cutoff": 0.85,
+      "reference_pair_count": 10,
+      "reference_pairs_above_cutoff": 1,
+      "negative_pair_count": 10,
+      "negative_pairs_above_cutoff": 0,
+      "baseline_guard_pass_candidate_count": 11,
+      "guard_pass_candidates_above_cutoff": 1,
+      "guard_pass_candidates_removed": [
+        {
+          "post_id": "post_001",
+          "image_id": "fox_002",
+          "similarity_score": 0.7842884471375471
+        },
+        {
+          "post_id": "post_002",
+          "image_id": "fox_003",
+          "similarity_score": 0.7872741767978279
+        },
+        {
+          "post_id": "post_002",
+          "image_id": "fox_007",
+          "similarity_score": 0.7832271819828164
+        },
+        {
+          "post_id": "post_002",
+          "image_id": "fox_008",
+          "similarity_score": 0.7441864675953473
+        },
+        {
+          "post_id": "post_003",
+          "image_id": "wolf_003",
+          "similarity_score": 0.7631763714865039
+        },
+        {
+          "post_id": "post_005",
+          "image_id": "dog_010",
+          "similarity_score": 0.7842590652153479
+        },
+        {
+          "post_id": "post_007",
+          "image_id": "bear_007",
+          "similarity_score": 0.8394318048694357
+        },
+        {
+          "post_id": "post_009",
+          "image_id": "deer_003",
+          "similarity_score": 0.8488524372397103
+        },
+        {
+          "post_id": "post_010",
+          "image_id": "deer_002",
+          "similarity_score": 0.7979062949719335
+        },
+        {
+          "post_id": "post_010",
+          "image_id": "deer_005",
+          "similarity_score": 0.7631086883015614
+        }
+      ],
+      "guarded_top1_metrics": {
+        "post_count": 10,
+        "returned_count": 1,
+        "abstained_count": 9,
+        "correct_exact_matches": 1,
+        "top1_exact_match_all_posts": 0.1,
+        "top1_exact_match_returned_posts": 1.0,
+        "coverage": 0.1
+      },
+      "predictions": [
+        {
+          "post_id": "post_001",
+          "expected_image_id": "fox_002",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_002",
+          "expected_image_id": "fox_003",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_003",
+          "expected_image_id": "wolf_003",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_004",
+          "expected_image_id": "wolf_006",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_005",
+          "expected_image_id": "dog_010",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_006",
+          "expected_image_id": "dog_004",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_007",
+          "expected_image_id": "bear_007",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_008",
+          "expected_image_id": "bear_003",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_009",
+          "expected_image_id": "deer_003",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_010",
+          "expected_image_id": "deer_007",
+          "predicted_image_id": "deer_007"
+        }
+      ]
+    },
+    {
+      "cutoff": 0.9,
+      "reference_pair_count": 10,
+      "reference_pairs_above_cutoff": 0,
+      "negative_pair_count": 10,
+      "negative_pairs_above_cutoff": 0,
+      "baseline_guard_pass_candidate_count": 11,
+      "guard_pass_candidates_above_cutoff": 0,
+      "guard_pass_candidates_removed": [
+        {
+          "post_id": "post_001",
+          "image_id": "fox_002",
+          "similarity_score": 0.7842884471375471
+        },
+        {
+          "post_id": "post_002",
+          "image_id": "fox_003",
+          "similarity_score": 0.7872741767978279
+        },
+        {
+          "post_id": "post_002",
+          "image_id": "fox_007",
+          "similarity_score": 0.7832271819828164
+        },
+        {
+          "post_id": "post_002",
+          "image_id": "fox_008",
+          "similarity_score": 0.7441864675953473
+        },
+        {
+          "post_id": "post_003",
+          "image_id": "wolf_003",
+          "similarity_score": 0.7631763714865039
+        },
+        {
+          "post_id": "post_005",
+          "image_id": "dog_010",
+          "similarity_score": 0.7842590652153479
+        },
+        {
+          "post_id": "post_007",
+          "image_id": "bear_007",
+          "similarity_score": 0.8394318048694357
+        },
+        {
+          "post_id": "post_009",
+          "image_id": "deer_003",
+          "similarity_score": 0.8488524372397103
+        },
+        {
+          "post_id": "post_010",
+          "image_id": "deer_007",
+          "similarity_score": 0.8642606673940942
+        },
+        {
+          "post_id": "post_010",
+          "image_id": "deer_002",
+          "similarity_score": 0.7979062949719335
+        },
+        {
+          "post_id": "post_010",
+          "image_id": "deer_005",
+          "similarity_score": 0.7631086883015614
+        }
+      ],
+      "guarded_top1_metrics": {
+        "post_count": 10,
+        "returned_count": 0,
+        "abstained_count": 10,
+        "correct_exact_matches": 0,
+        "top1_exact_match_all_posts": 0.0,
+        "top1_exact_match_returned_posts": null,
+        "coverage": 0.0
+      },
+      "predictions": [
+        {
+          "post_id": "post_001",
+          "expected_image_id": "fox_002",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_002",
+          "expected_image_id": "fox_003",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_003",
+          "expected_image_id": "wolf_003",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_004",
+          "expected_image_id": "wolf_006",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_005",
+          "expected_image_id": "dog_010",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_006",
+          "expected_image_id": "dog_004",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_007",
+          "expected_image_id": "bear_007",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_008",
+          "expected_image_id": "bear_003",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_009",
+          "expected_image_id": "deer_003",
+          "predicted_image_id": null
+        },
+        {
+          "post_id": "post_010",
+          "expected_image_id": "deer_007",
+          "predicted_image_id": null
+        }
+      ]
+    }
+  ]
+}

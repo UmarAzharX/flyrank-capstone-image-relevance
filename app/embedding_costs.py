@@ -4,7 +4,7 @@ from app.budget import check_ai_limits
 from app.config import settings
 from app.database import SessionLocal
 from app.embedding_vectors import EMBEDDING_DIMENSIONS, EMBEDDING_MODEL
-from app.models import AICallCost, Image, Post
+from app.models import AICallCost, Image, Post, ProcessingJob
 
 
 def reserve_free_tier_embedding_call(
@@ -12,6 +12,7 @@ def reserve_free_tier_embedding_call(
     tenant_id: int,
     owner_type: str,
     owner_id: int,
+    job_id: int | None = None,
 ) -> int:
     if EMBEDDING_MODEL != "gemini-embedding-2":
         raise ValueError("Free-tier pricing is not configured for this model.")
@@ -29,6 +30,16 @@ def reserve_free_tier_embedding_call(
         )
         if owner is None:
             raise LookupError("Embedding owner not found for this tenant.")
+
+        if job_id is not None:
+            job = db.scalar(select(ProcessingJob).where(
+                ProcessingJob.id == job_id,
+                ProcessingJob.tenant_id == tenant_id,
+                ProcessingJob.job_type == "embedding",
+                ProcessingJob.status == "running",
+            ))
+            if job is None:
+                raise LookupError("Running embedding job not found for this tenant.")
 
         # Serialize embedding reservations with vision reservations.
         db.execute(
@@ -55,6 +66,7 @@ def reserve_free_tier_embedding_call(
             provider="google",
             model=EMBEDDING_MODEL,
             operation_type="embedding",
+            related_job_id=job_id,
             related_entity_type=owner_type,
             related_entity_id=owner_id,
             usage={

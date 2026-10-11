@@ -67,6 +67,8 @@ class DogBreedGuardTests(unittest.TestCase):
             image_attributes=[],
             image_confidence=0.99,
             confidence_threshold=0.8,
+            similarity_score=0.9,
+            similarity_threshold=0.7,
         )
         self.assertEqual(result.decision, "review")
 

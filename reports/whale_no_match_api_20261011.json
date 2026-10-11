@@ -1,0 +1,32 @@
+{
+  "observed_date": "2026-10-11",
+  "source": "User-pasted PowerShell API response; HTTP status was not separately captured.",
+  "request": {
+    "method": "POST",
+    "url": "http://127.0.0.1:8000/posts/13/suggestions?top_k=5"
+  },
+  "response": {
+    "post_id": 13,
+    "created_count": 0,
+    "reused_count": 0,
+    "suggestions": [],
+    "match_status": "no_confident_match",
+    "candidates_checked": 50,
+    "no_match_reasons": [
+      "None of the 50 candidates passed all subject, context, vision-confidence and similarity checks.",
+      "deer_004 (reject): Could not identify one clear, supported animal subject on both sides. No supported context requirement was identified. Vision confidence 0.980 meets the configured threshold 0.800.Cosine similarity 0.6256975811327663 is below the configured cutoff 0.7.",
+      "bear_010 (reject): Could not identify one clear, supported animal subject on both sides. No supported context requirement was identified. Vision confidence 0.980 meets the configured threshold 0.800.Cosine similarity 0.6241726379233875 is below the configured cutoff 0.7.",
+      "dog_010 (reject): Could not identify one clear, supported animal subject on both sides. No supported context requirement was identified. Vision confidence 0.990 meets the configured threshold 0.800. Cosine similarity 0.6199068071446561 is below the configured cutoff 0.7."
+    ]
+  },
+  "checks": {
+    "no_confident_match": true,
+    "no_suggestions": true,
+    "all_50_candidates_checked": true,
+    "reasons_returned": true
+  },
+  "limits": [
+    "Whale is outside the subject guard's supported set; do not claim a recognized whale-versus-animal subject mismatch.",
+    "The similarity scores in the response are measured, unlike the forced 1.0 inputs in the earlier rejection replay."
+  ]
+}

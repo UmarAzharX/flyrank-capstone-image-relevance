@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-10-11T00:01:38.308171+00:00",
+  "scope": "Designated fox/wolf and fox/dog guard fixtures with saved live image metadata.",
+  "similarity_input": "Forced 1.0 stress input; not a measured cosine score.",
+  "database_writes": 0,
+  "gemini_requests_sent": 0,
+  "cases": [
+    {
+      "case_id": "guard_001",
+      "post_title": "The Behavior of Red Foxes",
+      "post_content": "Red foxes are adaptable wild canids found in forests, grasslands, and urban environments.",
+      "image_external_id": "wolf_001",
+      "image_id": 11,
+      "saved_subject": "wolf",
+      "saved_confidence": 0.99,
+      "subject_decision": "reject",
+      "guard_decision": "reject",
+      "explanation": "Subject mismatch: post describes fox; image describes wolf. Image metadata does not confirm required context: grassland, road, woodland. Vision confidence 0.990 meets the configured threshold 0.800. Cosine similarity 1.000000 meets the configured cutoff 0.700.",
+      "forced_similarity_score": 1.0,
+      "passed": true
+    },
+    {
+      "case_id": "guard_002",
+      "post_title": "Red Fox Habitat and Hunting",
+      "post_content": "Red foxes rely on keen hearing and flexible hunting behavior in woodland and open terrain.",
+      "image_external_id": "dog_001",
+      "image_id": 21,
+      "saved_subject": "Alaskan Malamute",
+      "saved_confidence": 0.98,
+      "subject_decision": "reject",
+      "guard_decision": "reject",
+      "explanation": "Subject mismatch: post describes fox; image describes dog. Image metadata does not confirm required context: woodland. Vision confidence 0.980 meets the configured threshold 0.800. Cosine similarity 1.000000 meets the configured cutoff 0.700.",
+      "forced_similarity_score": 1.0,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

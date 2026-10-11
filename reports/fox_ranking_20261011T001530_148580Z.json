@@ -1,0 +1,65 @@
+{
+  "generated_at": "2026-10-11T00:15:30.148177+00:00",
+  "post_external_id": "post_001",
+  "post_id": 2,
+  "post_title": "How Red Foxes Adapt to Snowy Winter Habitats",
+  "post_content": "Red foxes use their dense winter coats and flexible hunting behavior to survive in snowy habitats.",
+  "tenant_id": 1,
+  "embedding_profile": "gemini-embedding-2:768:retrieval:text-v1",
+  "candidates_checked": 50,
+  "similarity_threshold": 0.7,
+  "vision_confidence_threshold": 0.8,
+  "score_source": "Measured cosine similarity from stored post and image vectors.",
+  "comparison": {
+    "first_result": {
+      "raw_rank": 1,
+      "image_id": 2,
+      "external_id": "fox_002",
+      "subject": "red fox",
+      "cosine_score": 0.7842884471375471,
+      "vision_confidence": 0.99,
+      "subject_decision": "pass",
+      "guard_decision": "pass",
+      "explanation": "Subject check passed: both describe fox. Winter/snow context is supported by image metadata. Vision confidence 0.990 meets the configured threshold 0.800. Cosine similarity 0.784288 meets the configured cutoff 0.700."
+    },
+    "best_wolf": {
+      "raw_rank": 13,
+      "image_id": 13,
+      "external_id": "wolf_003",
+      "subject": "wolf",
+      "cosine_score": 0.6823458965046234,
+      "vision_confidence": 0.98,
+      "subject_decision": "reject",
+      "guard_decision": "reject",
+      "explanation": "Subject mismatch: post describes fox; image describes wolf. Winter/snow context is supported by image metadata. Image metadata confirms winter. Vision confidence 0.980 meets the configured threshold 0.800. Cosine similarity 0.6823458965046234 is below the configured cutoff 0.7.",
+      "score_gap_below_first": 0.10194255063292368
+    },
+    "best_dog": {
+      "raw_rank": 14,
+      "image_id": 30,
+      "external_id": "dog_010",
+      "subject": "Siberian Huskies",
+      "cosine_score": 0.6820175745567826,
+      "vision_confidence": 0.99,
+      "subject_decision": "reject",
+      "guard_decision": "reject",
+      "explanation": "Subject mismatch: post describes fox; image describes dog. Winter/snow context is supported by image metadata. Image metadata confirms winter. Vision confidence 0.990 meets the configured threshold 0.800. Cosine similarity 0.6820175745567826 is below the configured cutoff 0.7.",
+      "score_gap_below_first": 0.1022708725807645
+    }
+  },
+  "checks": {
+    "raw_top_1_is_fox": true,
+    "top_1_passes_all_guards": true,
+    "fox_scores_above_best_wolf": true,
+    "wolf_rejected_by_subject_and_full_guard": true,
+    "fox_scores_above_best_dog": true,
+    "dog_rejected_by_subject_and_full_guard": true
+  },
+  "passed": true,
+  "database_writes": 0,
+  "gemini_requests_sent": 0,
+  "limitations": [
+    "This is one development query, not an independent evaluation.",
+    "Score gaps are measured differences, not probabilities or calibrated margins."
+  ]
+}

@@ -19,6 +19,7 @@ def generate_text_embedding(
     owner_id: int,
     text: str,
     title: str | None = None,
+    job_id: int | None = None,
 ) -> list[float]:
     text = text.strip()
     if not text:
@@ -36,6 +37,7 @@ def generate_text_embedding(
         tenant_id=tenant_id,
         owner_type=owner_type,
         owner_id=owner_id,
+        **({"job_id": job_id} if job_id is not None else {}),
     )
     print("Call slot reserved:", record_id)
 

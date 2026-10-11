@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException, Path as ApiPath, Query
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
@@ -13,7 +13,7 @@ from app.schemas import (
     PostResponse,
     SuggestionResponse,
 )
-from app.suggestion_processing import save_post_suggestions
+from app.suggestion_processing import generate_post_suggestions as process_post_suggestions
 
 
 router = APIRouter(
@@ -22,6 +22,7 @@ router = APIRouter(
 )
 
 DEMO_TENANT_NAME = "FlyRank Demo"
+CORPUS_MANIFEST_PATH = Path(__file__).resolve().parents[2] / "data" / "images.json"
 
 
 def get_demo_tenant(db: Session) -> Tenant:
@@ -98,7 +99,7 @@ def create_post(
     response_model=MatchingResponse,
 )
 def generate_post_suggestions(
-    post_id: int,
+    post_id: int = ApiPath(ge=1),
     top_k: int = Query(default=5, ge=1, le=50),
     db: Session = Depends(get_db),
 ) -> MatchingResponse:
@@ -116,11 +117,7 @@ def generate_post_suggestions(
                 detail="Post not found",
             )
 
-        manifest_path = (
-            Path(__file__).resolve().parents[2]
-            / "data"
-            / "images.json"
-        )
+        manifest_path = CORPUS_MANIFEST_PATH
         manifest = json.loads(
             manifest_path.read_text(encoding="utf-8")
         )
@@ -128,12 +125,15 @@ def generate_post_suggestions(
         if len(corpus_ids) != len(manifest):
             raise ValueError("Duplicate corpus IDs found.")
 
-        saved_ids, created_count = save_post_suggestions(
+        result = process_post_suggestions(
             tenant_id=tenant.id,
             external_id=post.external_id,
             corpus_ids=corpus_ids,
             limit=top_k,
         )
+
+        saved_ids = result.saved_ids
+        created_count = result.created_count
 
         rows = db.execute(
             select(
@@ -166,6 +166,9 @@ def generate_post_suggestions(
             post_id=post.id,
             created_count=created_count,
             reused_count=len(saved_ids) - created_count,
+            match_status=result.match_status,
+            candidates_checked=result.candidates_checked,
+            no_match_reasons=result.no_match_reasons,
             suggestions=[
                 SuggestionResponse(**dict(row._mapping))
                 for row in rows

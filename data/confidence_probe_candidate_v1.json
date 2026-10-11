@@ -1,0 +1,21 @@
+{
+  "id": "confidence_probe_001",
+  "filename": "uncertain_002.jpg",
+  "source": "pexels",
+  "source_page_url": "https://www.pexels.com/photo/a-brown-fox-on-the-grassy-field-9953519/",
+  "download_url": "https://images.pexels.com/photos/9953519/pexels-photo-9953519.jpeg?cs=srgb&dl=pexels-rajukhanp-9953519.jpg&fm=jpg",
+  "photographer": "Rajukhan Pathan",
+  "sha256": "2b367fbf89107bfdd43fbffd1cfc8311a29bd19dfa6932c669e8fa0f745eb30a",
+  "purpose": "Separate live confidence test completed; reported confidence 0.95, above the 0.80 threshold.",
+  "edited": false,
+  "observed_result": {
+    "evidence_source": "User-pasted terminal output; no independent database read",
+    "image_id": 52,
+    "external_id": "confidence_probe_001",
+    "subject": "Fox",
+    "confidence": 0.95,
+    "processing_status": "tagged",
+    "low_confidence": false,
+    "cost_record_id": 115
+  }
+}

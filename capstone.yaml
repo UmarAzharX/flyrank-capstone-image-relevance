@@ -1,0 +1,42 @@
+# Run from the repository root after following docs/SETUP.md.
+# Platform: Windows PowerShell; tested Python version: 3.14.6.
+# The seed command registers image records. Photos, vision metadata, and
+# post/image embeddings require the preparation steps in docs/SETUP.md.
+# Numeric IDs differ across databases: inspect GET /posts and use printed job IDs.
+run: '.\.venv\Scripts\python.exe -B -m uvicorn app.main:app --host 127.0.0.1 --port 8000'
+seed: '.\.venv\Scripts\python.exe -B -m scripts.seed'
+test: '.\.venv\Scripts\python.exe -B -m scripts.run_checks'
+base_url: 'http://127.0.0.1:8000'
+endpoints:
+  - method: GET
+    path: /health
+  - method: GET
+    path: /images
+  - method: POST
+    path: /images
+  - method: GET
+    path: /images/{image_id}
+  - method: GET
+    path: /posts
+  - method: POST
+    path: /posts
+  - method: GET
+    path: /posts/{post_id}
+  - method: POST
+    path: /posts/{post_id}/suggestions
+  - method: GET
+    path: /jobs/{job_id}
+  - method: GET
+    path: /jobs/{job_id}/costs
+  - method: POST
+    path: /jobs/{job_id}/run-one
+  - method: POST
+    path: /jobs/{job_id}/run-batch
+  - method: POST
+    path: /jobs/{job_id}/run-embeddings
+  - method: POST
+    path: /jobs/{job_id}/resume
+  - method: POST
+    path: /suggestions/{suggestion_id}/reviews
+  - method: GET
+    path: /suggestions/{suggestion_id}/reviews

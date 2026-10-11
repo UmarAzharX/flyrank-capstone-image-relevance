@@ -1,0 +1,33 @@
+{
+  "source": "User-pasted PowerShell output from GET /suggestions/1/reviews. The PowerShell value/Count wrapper was normalized to the API array.",
+  "observed_date": "2026-10-11",
+  "request": {
+    "method": "GET",
+    "path": "/suggestions/1/reviews"
+  },
+  "response": [
+    {
+      "id": 1,
+      "suggestion_id": 1,
+      "decision": "accept",
+      "review_note": "Snowy wolf image fits the winter post.",
+      "created_at": "2026-10-10T15:38:28.144022Z"
+    },
+    {
+      "id": 2,
+      "suggestion_id": 1,
+      "decision": "reject",
+      "review_note": "Prefer a wider scene for this article.",
+      "created_at": "2026-10-10T15:47:50.829427Z"
+    }
+  ],
+  "checks": {
+    "both_decisions_preserved": true,
+    "accept_before_reject": true,
+    "notes_and_timestamps_preserved": true
+  },
+  "limitations": [
+    "HTTP status was not separately captured in the pasted output."
+  ]
+}
+

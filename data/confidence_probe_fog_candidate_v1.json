@@ -1,0 +1,23 @@
+{
+  "id": "confidence_probe_fog_001",
+  "filename": "uncertain_fog_001.jpg",
+  "source": "pexels",
+  "source_page_url": "https://www.pexels.com/photo/an-animal-on-a-mountain-under-a-foggy-weather-4589061/",
+  "download_url": "https://images.pexels.com/photos/4589061/pexels-photo-4589061.jpeg",
+  "photographer": "ArtHouse Studio",
+  "license_url": "https://www.pexels.com/license/",
+  "sha256": "3e0285c0204509acbad55f7fd86916c48a23a89e5f9f2362bd2e4866ba3af1be",
+  "size_bytes": 1015975,
+  "purpose": "Separate live confidence test completed; reported confidence 0.95, above the 0.80 threshold.",
+  "edited": false,
+  "observed_result": {
+    "evidence_source": "User-pasted terminal output; no independent database read",
+    "image_id": 53,
+    "external_id": "confidence_probe_fog_001",
+    "subject": "deer",
+    "confidence": 0.95,
+    "processing_status": "tagged",
+    "low_confidence": false,
+    "cost_record_id": 117
+  }
+}

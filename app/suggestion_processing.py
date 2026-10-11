@@ -1,3 +1,6 @@
+from dataclasses import dataclass
+from typing import Literal
+
 from sqlalchemy import select
 
 from app.config import settings
@@ -8,13 +11,38 @@ from app.ranking import rank_images_for_post
 from app.selection import select_eligible_candidates
 
 
-def save_post_suggestions(
+@dataclass(frozen=True)
+class SuggestionProcessingResult:
+    saved_ids: list[int]
+    created_count: int
+    match_status: Literal["matched", "no_confident_match"]
+    candidates_checked: int
+    no_match_reasons: list[str]
+
+
+def explain_no_match(guarded) -> list[str]:
+    if not guarded:
+        return ["No image candidates were available."]
+    reasons = [
+        f"None of the {len(guarded)} candidates passed all subject, context, "
+        "vision-confidence and similarity checks."
+    ]
+    # Ranked order is preserved. These are the nearest three candidates'
+    # reasons, not a claim that all images failed for the same reason.
+    reasons.extend(
+        f"{image.external_id} ({guard.decision}): {guard.explanation}"
+        for image, guard in guarded[:3]
+    )
+    return reasons
+
+
+def generate_post_suggestions(
     *,
     tenant_id: int,
     external_id: str,
     corpus_ids: set[str],
     limit: int = 5,
-) -> tuple[list[int], int]:
+) -> SuggestionProcessingResult:
     if not corpus_ids or type(limit) is not int or limit < 1:
         raise ValueError("Invalid corpus or suggestion limit.")
 
@@ -51,6 +79,8 @@ def save_post_suggestions(
                     image_attributes=image.attributes,
                     image_confidence=image.confidence,
                     confidence_threshold=settings.vision_confidence_threshold,
+                    similarity_score=image.similarity_score,
+                    similarity_threshold=settings.similarity_threshold,
                 ),
             )
             for image in ranked
@@ -88,4 +118,21 @@ def save_post_suggestions(
             db.flush()
             saved_ids.append(suggestion.id)
 
-    return saved_ids, created_count
+    return SuggestionProcessingResult(
+        saved_ids=saved_ids,
+        created_count=created_count,
+        match_status="matched" if saved_ids else "no_confident_match",
+        candidates_checked=len(guarded),
+        no_match_reasons=[] if saved_ids else explain_no_match(guarded),
+    )
+
+
+def save_post_suggestions(
+    *, tenant_id: int, external_id: str, corpus_ids: set[str], limit: int = 5,
+) -> tuple[list[int], int]:
+    # Preserve the existing CLI and service caller contract.
+    result = generate_post_suggestions(
+        tenant_id=tenant_id, external_id=external_id,
+        corpus_ids=corpus_ids, limit=limit,
+    )
+    return result.saved_ids, result.created_count

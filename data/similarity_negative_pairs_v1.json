@@ -1,0 +1,21 @@
+{
+  "purpose": "Subject-mismatch development pairs for cutoff diagnostics; not a held-out test or a complete relevance dataset.",
+  "label_method": "AI-assisted selection by named animal subject, using inspected local photos and source descriptions; chosen before measuring these pair scores. All non-reference images are NOT assumed negative.",
+  "source_checks": {
+    "wolf_003": "https://www.pexels.com/photo/close-up-portrait-of-a-majestic-wolf-in-snow-36129725/",
+    "dog_010": "https://www.pexels.com/photo/dogs-on-snow-during-winter-11764467/",
+    "fox_002": "https://www.pexels.com/photo/red-fox-walking-in-snow-20853949/"
+  },
+  "pairs": [
+    {"post_id": "post_001", "image_id": "wolf_003", "reason": "Fox article; source identifies wolf."},
+    {"post_id": "post_002", "image_id": "wolf_003", "reason": "Fox article; source identifies wolf."},
+    {"post_id": "post_003", "image_id": "dog_010", "reason": "Wolf article; source identifies Siberian Huskies."},
+    {"post_id": "post_004", "image_id": "dog_010", "reason": "Wolf article; source identifies Siberian Huskies."},
+    {"post_id": "post_005", "image_id": "wolf_003", "reason": "Siberian Husky article; source identifies wolf."},
+    {"post_id": "post_006", "image_id": "dog_010", "reason": "German Shepherd article; source identifies Siberian Huskies."},
+    {"post_id": "post_007", "image_id": "fox_002", "reason": "Bear article; source identifies red fox."},
+    {"post_id": "post_008", "image_id": "fox_002", "reason": "Grizzly article; source identifies red fox."},
+    {"post_id": "post_009", "image_id": "fox_002", "reason": "Deer article; source identifies red fox."},
+    {"post_id": "post_010", "image_id": "fox_002", "reason": "Deer article; source identifies red fox."}
+  ]
+}
