@@ -15,6 +15,21 @@ DATABASE_NAME = 'flyrank_setup_check'
 LABEL = 'flyrank.capstone.setup-check'
 
 
+def load_seed_manifest(project: Path) -> list[dict]:
+    rows = json.loads((project / 'data/images.json').read_text(encoding='utf-8'))
+    if not isinstance(rows, list) or not rows:
+        raise ValueError('Seed manifest must be a nonempty list.')
+    identifiers = []
+    for row in rows:
+        if not isinstance(row, dict) or not all(isinstance(row.get(key), str) and row[key].strip()
+                for key in ('id', 'filename', 'source', 'source_page_url')):
+            raise ValueError('Seed manifest fields must contain text.')
+        identifiers.append(row['id'])
+    if len(set(identifiers)) != len(identifiers):
+        raise ValueError('Seed manifest IDs must be unique.')
+    return rows
+
+
 def scratch_environment(port: int, password: str) -> dict[str, str]:
     if not 1 <= port <= 65535:
         raise ValueError('Invalid temporary port.')
@@ -49,7 +64,7 @@ def inspect_database(project: Path) -> dict:
             or url.database != DATABASE_NAME or url.port == 5432
             or settings.gemini_api_key or settings.ai_max_calls != 0):
         raise ValueError('Refusing inspection outside the isolated setup-check database.')
-    manifest = json.loads((project / 'data/images.json').read_text(encoding='utf-8'))
+    manifest = load_seed_manifest(project)
     expected = {row['id']: (row['filename'], row['source'], row['source_page_url']) for row in manifest}
     checks = []
 
@@ -67,7 +82,7 @@ def inspect_database(project: Path) -> dict:
         require('all_model_tables_present', set(Base.metadata.tables) <= set(tables))
         require('one_seed_tenant', connection.scalar(select(func.count()).select_from(Tenant)) == 1)
         saved = connection.execute(select(Image.external_id, Image.filename, Image.source, Image.source_page_url, Image.processing_status)).all()
-        require('fifty_seed_images', len(saved) == len(expected) == 50)
+        require('seed_images_match_manifest_count', len(saved) == len(expected))
         require('seed_fields_match_manifest', {r.external_id: (r.filename, r.source, r.source_page_url) for r in saved} == expected)
         require('seed_images_pending', all(row.processing_status == 'pending' for row in saved))
         empty_tables = set(Base.metadata.tables) - {'tenants', 'images'}
@@ -89,7 +104,7 @@ def inspect_database(project: Path) -> dict:
         except IntegrityError:
             foreign_key_blocked = True
         require('postgresql_rejects_missing_tenant', foreign_key_blocked)
-        require('constraint_probes_saved_no_images', connection.scalar(select(func.count()).select_from(Image)) == 50)
+        require('constraint_probes_saved_no_images', connection.scalar(select(func.count()).select_from(Image)) == len(manifest))
 
     from unittest.mock import patch
     from fastapi.testclient import TestClient
@@ -99,7 +114,7 @@ def inspect_database(project: Path) -> dict:
             health = client.get('/health')
             require('api_health_200', health.status_code == 200)
             images = client.get('/images')
-            require('api_reads_fifty_images', images.status_code == 200 and len(images.json()) == 50)
+            require('api_reads_manifest_images', images.status_code == 200 and len(images.json()) == len(manifest))
             posts = client.get('/posts')
             require('api_starts_without_posts', posts.status_code == 200 and posts.json() == [])
             invalid = client.post('/posts', json={'external_id': 'setup_blank', 'title': ' ', 'content': 'Test'})
@@ -114,13 +129,14 @@ def inspect_database(project: Path) -> dict:
     with engine.connect() as connection:
         require('no_ai_costs_created', connection.scalar(select(func.count()).select_from(Base.metadata.tables['ai_call_costs'])) == 0)
     engine.dispose()
-    return {'checks': checks, 'images': 50, 'fixture_posts': 1, 'schema_differences': len(differences), 'ai_calls': 0}
+    return {'checks': checks, 'images': len(manifest), 'fixture_posts': 1, 'schema_differences': len(differences), 'ai_calls': 0}
 
 
 def verify(project: Path, *, report_path: Path | None = None) -> dict:
     project = project.resolve()
     if not (project / 'alembic.ini').is_file() or not (project / 'data/images.json').is_file():
         raise ValueError('Run this check against the capstone repository.')
+    image_count = len(load_seed_manifest(project))
     token = uuid.uuid4().hex
     name = 'flyrank-setup-check-' + token[:12]
     container_id = None
@@ -166,7 +182,7 @@ def verify(project: Path, *, report_path: Path | None = None) -> dict:
                 ('Repeat seed', 'scripts.seed', [])):
             result = run_command([python, '-B', '-m', module, *arguments], cwd=project, env=environment)
             if module == 'scripts.seed':
-                expected = ('Created images: 50', 'Skipped existing images: 0') if stage == 'Seed image records' else ('Created images: 0', 'Skipped existing images: 50')
+                expected = (f'Created images: {image_count}', 'Skipped existing images: 0') if stage == 'Seed image records' else ('Created images: 0', f'Skipped existing images: {image_count}')
                 if not all(message in result.stdout.splitlines() for message in expected):
                     raise AssertionError('Unexpected seed result.')
             report['steps'].append({'name': stage, 'passed': True})

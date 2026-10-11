@@ -4,16 +4,16 @@ A FastAPI backend that uses Gemini to describe images and match them to articles
 
 ## Results
 
-The development dataset contains **50 image records across five animal groups** (49 distinct photographs) and **10 labeled posts**.
+The dataset contains **51 image records**: 50 animal images across five groups and one defocused animal-painting photo for the live confidence check. It represents 50 distinct Pexels photos. Evaluation uses **10 labeled posts**.
 
 | Metric | Recorded result |
 | --- | ---: |
 | First suggestion matches the labeled image, across all posts | **7/10 (70%)** |
 | Coverage: posts receiving a suggestion | **7/10 (70%)** |
 | Exact-image match among returned suggestions | **7/7 (100%)** |
-| Offline tests | **257 passed** |
+| Offline tests | **265 passed** |
 
-The top-1 accuracy is **70%**. Posts with no suggestion count as incorrect results. The original labels produced 50% accuracy. An AI-assisted review after inspecting predictions corrected two labels, raising the measured result to 70%. Post text and embeddings stayed unchanged. The increase reflects corrected labels. Performance on new data remains untested. See the [evaluation guide](docs/SETUP.md#tests-and-evaluation) and [recorded report](reports/evaluation_with_cutoff_v1.json).
+The top-1 accuracy is **70%**. Posts with no suggestion count as incorrect results. The original labels produced 50% accuracy. An AI-assisted review after inspecting predictions corrected two labels, raising the measured result to 70%. Post text and embeddings stayed unchanged. The increase reflects corrected labels. Performance on new data remains untested. See the [evaluation guide](docs/SETUP.md#tests-and-evaluation) and [recorded report](reports/evaluation_51_images_20261011_081338_7401606.json).
 
 ## Architecture
 
@@ -72,7 +72,7 @@ Use `POST /posts/{post_id}/suggestions` to find matches. Use `POST /suggestions/
 .\.venv\Scripts\python.exe -B -m scripts.run_checks
 ```
 
-All **257 offline tests passed**. They use separate SQLite test databases and simulated AI responses, with no Gemini requests. After saving the image descriptions and embeddings, run the labeled evaluation:
+All **265 offline tests passed**. They use separate SQLite test databases and simulated AI responses, with no Gemini requests. After saving the image descriptions and embeddings, run the labeled evaluation:
 
 ```powershell
 $evaluationStamp = Get-Date -Format "yyyyMMdd_HHmmss_fffffff"
@@ -83,7 +83,7 @@ Each run uses a new filename to preserve earlier reports. New AI responses can c
 
 ## Submission status
 
-The main pipeline and offline tests are working. [EVIDENCE.md](EVIDENCE.md), [BUILDLOG.md](BUILDLOG.md), and [capstone.yaml](capstone.yaml) record the results, development decisions, and evaluator commands. Final acceptance checks and a real low-confidence image example remain pending. Repeatable image downloads and fresh PostgreSQL database setup passed verification. The code uses the [MIT license](LICENSE). Source photographs have separate licensing terms.
+The main pipeline and offline tests are working. [EVIDENCE.md](EVIDENCE.md), [BUILDLOG.md](BUILDLOG.md), and [capstone.yaml](capstone.yaml) record the results, development decisions, and evaluator commands. A real corpus batch result returned confidence 0.40 and was saved as needing review. The added image is embedded, and evaluation against all 51 entries preserves the results shown above. The final saved-data audit found zero errors and five documented historical review items. Fresh PostgreSQL setup passed all 21 checks for the 51-entry manifest. Publication of these final updates remains pending. Repeatable image downloads and fresh PostgreSQL database setup passed verification. The code uses the [MIT license](LICENSE). Source photographs have separate licensing terms.
 
 ## Limitations
 
@@ -91,7 +91,7 @@ The main pipeline and offline tests are working. [EVIDENCE.md](EVIDENCE.md), [BU
 - **Interrupted jobs:** restarting the server can leave background jobs unfinished. A manual recovery command is available after all workers are stopped. Automatic recovery is not implemented.
 - **Demo access and scale:** API routes use one fixed tenant without authentication. Embeddings are compared in memory. Simultaneous requests have not been verified against live PostgreSQL.
 - **Stored data and cost gaps:** changed inputs do not automatically refresh embeddings. Costs assume free-tier billing. The provider did not report token usage for live embedding calls.
-- **Reproducibility and live confidence:** some newly downloaded JPEGs have small encoding differences from the originals; historical AI results are not guaranteed to repeat. Low-confidence handling passed simulated tests, but all 50 corpus results and both separate live candidates were above the confidence threshold. See the [API guide](docs/API.md#operational-limitations) for details.
+- **Reproducibility and live confidence:** some newly downloaded JPEGs have small encoding differences from the originals; historical AI results are not guaranteed to repeat. Low-confidence handling passed simulated tests and a live corpus batch check. The added image returned confidence 0.40 and was saved for review. This single example does not establish confidence calibration. See the [API guide](docs/API.md#operational-limitations) for details.
 
 ## Future Improvements
 

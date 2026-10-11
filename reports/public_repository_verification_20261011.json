@@ -1,0 +1,18 @@
+{
+  "verified_on_local_date": "2026-10-11",
+  "timezone": "Asia/Karachi",
+  "evidence_source": "Unauthenticated GET requests to GitHub repository and commits/main API endpoints, plus read-only local Git checks",
+  "repository": "UmarAzharX/flyrank-capstone-image-relevance",
+  "html_url": "https://github.com/UmarAzharX/flyrank-capstone-image-relevance",
+  "private": false,
+  "visibility": "public",
+  "default_branch": "main",
+  "pushed_at_utc": "2026-10-11T02:36:40Z",
+  "published_main_commit": "65d97de7737746bfe1af8981ff6754633abfcb0e",
+  "local_head_matches": true,
+  "local_origin_main_matches": true,
+  "local_working_tree_clean": true,
+  "historical_visibility_from_day_one_verified": false,
+  "repository_or_remote_mutations_by_this_check": false,
+  "follow_up_fix_published": false
+}

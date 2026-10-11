@@ -1,0 +1,38 @@
+{
+  "image": {
+    "id": "confidence_motion_001",
+    "expected_subject": "uncertain animal depiction",
+    "source": "pexels",
+    "source_page_url": "https://www.pexels.com/photo/defocused-painting-of-an-animal-15265894/",
+    "download_url": "https://images.pexels.com/photos/15265894/pexels-photo-15265894.jpeg",
+    "filename": "confidence_motion_001.jpg",
+    "download_sha256": "5a7843c08853f6c01136041ff6958870b9649da9f41de55bcd6a14b96c066149",
+    "original_sha256": "5a7843c08853f6c01136041ff6958870b9649da9f41de55bcd6a14b96c066149",
+    "download_size_bytes": 1839082,
+    "original_size_bytes": 1839082
+  },
+  "photographer": "Leiliane Assis",
+  "license_url": "https://www.pexels.com/license/",
+  "edited": false,
+  "description": "Original defocused photograph of an animal painting; no species label is assumed.",
+  "purpose": "Live low-confidence result saved through corpus background vision job 3.",
+  "observed_result": {
+    "image_id": 54,
+    "external_id": "confidence_motion_001",
+    "subject": "abstract blur",
+    "confidence": 0.4,
+    "low_confidence": true,
+    "processing_status": "needs_review",
+    "evidence_source": "User-provided terminal output from a read-only PostgreSQL query",
+    "independently_queried_by_assistant": false
+  },
+  "embedding_result": {
+    "embedding_id": 63,
+    "call_cost_id": 119,
+    "profile": "gemini-embedding-2:768:retrieval:text-v1",
+    "dimensions": 768,
+    "vector_length": 1.0,
+    "usage_available": false,
+    "evidence_source": "User-provided terminal output"
+  }
+}

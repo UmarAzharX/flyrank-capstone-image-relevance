@@ -1,0 +1,116 @@
+{
+  "checked_at_utc": "2026-10-11T03:16:34.571760+00:00",
+  "passed": true,
+  "scope": "Fresh PostgreSQL 16 container using installed project dependencies. No live Gemini processing.",
+  "existing_database_used": false,
+  "environment_file_changed": false,
+  "container_removed": true,
+  "steps": [
+    {
+      "name": "Apply migrations",
+      "passed": true
+    },
+    {
+      "name": "Repeat migrations",
+      "passed": true
+    },
+    {
+      "name": "Seed image records",
+      "passed": true
+    },
+    {
+      "name": "Repeat seed",
+      "passed": true
+    }
+  ],
+  "checks": [
+    {
+      "name": "postgresql_16",
+      "passed": true
+    },
+    {
+      "name": "migration_head",
+      "passed": true
+    },
+    {
+      "name": "migration_matches_models",
+      "passed": true
+    },
+    {
+      "name": "all_model_tables_present",
+      "passed": true
+    },
+    {
+      "name": "one_seed_tenant",
+      "passed": true
+    },
+    {
+      "name": "seed_images_match_manifest_count",
+      "passed": true
+    },
+    {
+      "name": "seed_fields_match_manifest",
+      "passed": true
+    },
+    {
+      "name": "seed_images_pending",
+      "passed": true
+    },
+    {
+      "name": "no_ai_or_processing_records",
+      "passed": true
+    },
+    {
+      "name": "postgresql_rejects_duplicate_image",
+      "passed": true
+    },
+    {
+      "name": "postgresql_rejects_missing_tenant",
+      "passed": true
+    },
+    {
+      "name": "constraint_probes_saved_no_images",
+      "passed": true
+    },
+    {
+      "name": "api_health_200",
+      "passed": true
+    },
+    {
+      "name": "api_reads_manifest_images",
+      "passed": true
+    },
+    {
+      "name": "api_starts_without_posts",
+      "passed": true
+    },
+    {
+      "name": "api_rejects_blank_title",
+      "passed": true
+    },
+    {
+      "name": "api_creates_post_in_postgresql",
+      "passed": true
+    },
+    {
+      "name": "api_rejects_duplicate_post",
+      "passed": true
+    },
+    {
+      "name": "api_saved_exactly_one_fixture_post",
+      "passed": true
+    },
+    {
+      "name": "no_gemini_client_created",
+      "passed": true
+    },
+    {
+      "name": "no_ai_costs_created",
+      "passed": true
+    }
+  ],
+  "images": 51,
+  "fixture_posts": 1,
+  "schema_differences": 0,
+  "ai_calls": 0
+}

@@ -15,6 +15,7 @@ OFFLINE_MODULES = (
     "scripts.check_image_source_sync",
     "scripts.check_fresh_postgres_safety",
     "scripts.check_interrupted_job_recovery",
+    "scripts.check_vision_job_creation",
     "scripts.check_bear_subtype_guard",
     "scripts.check_budget",
     "scripts.check_confidence_guard",

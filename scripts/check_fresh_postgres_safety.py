@@ -22,7 +22,7 @@ class FreshPostgresSafetyChecks(unittest.TestCase):
         self.project = Path(self.temp.name)
         (self.project / 'alembic.ini').write_text('test')
         (self.project / 'data').mkdir()
-        (self.project / 'data/images.json').write_text('[]')
+        self.write_manifest(50)
         self.report_path = self.project / 'report.json'
         self.commands = []
         self.fail_seed = False
@@ -32,8 +32,14 @@ class FreshPostgresSafetyChecks(unittest.TestCase):
         self.output.__enter__()
         self.addCleanup(self.output.__exit__, None, None, None)
 
+    def write_manifest(self, count):
+        rows = [dict(id=f'image_{n}', filename=f'image_{n}.jpg', source='pexels',
+                     source_page_url='https://www.pexels.com/photo/test-1/') for n in range(count)]
+        (self.project / 'data/images.json').write_text(json.dumps(rows))
+
     def fake_run(self, command, **options):
         self.commands.append((command, options))
+        image_count = len(json.loads((self.project / 'data/images.json').read_text()))
         if command[:3] == ['docker', 'image', 'inspect']:
             output = 'linux\n'
         elif command[:2] == ['docker', 'run']:
@@ -44,9 +50,9 @@ class FreshPostgresSafetyChecks(unittest.TestCase):
             if self.fail_seed:
                 raise RuntimeError('simulated seed failure')
             self.seed_count += 1
-            output = 'Created images: 50\nSkipped existing images: 0\n' if self.seed_count == 1 else 'Created images: 0\nSkipped existing images: 50\n'
+            output = f'Created images: {image_count}\nSkipped existing images: 0\n' if self.seed_count == 1 else f'Created images: 0\nSkipped existing images: {image_count}\n'
         elif '--inspect-database' in command:
-            output = json.dumps({'checks': [{'name': 'offline_orchestration_fixture', 'passed': True}], 'images': 50, 'schema_differences': 0, 'ai_calls': 0})
+            output = json.dumps({'checks': [{'name': 'offline_orchestration_fixture', 'passed': True}], 'images': image_count, 'schema_differences': 0, 'ai_calls': 0})
         else:
             output = ''
         return subprocess.CompletedProcess(command, 0, stdout=output, stderr='')
@@ -79,6 +85,23 @@ class FreshPostgresSafetyChecks(unittest.TestCase):
         self.assertEqual(len(children), 5)
         self.assertTrue(all(o['env']['AI_MAX_CALLS'] == '0' and not o['env']['GEMINI_API_KEY'] for _, o in children))
         self.assertEqual(json.loads(self.report_path.read_text())['ai_calls'], 0)
+
+    def test_expanded_manifest_seeds_and_reuses_all_51_images(self):
+        self.write_manifest(51)
+        report = self.run_check()
+        self.assertTrue(report['passed'])
+        self.assertEqual(report['images'], 51)
+        self.assertEqual(self.seed_count, 2)
+        self.assertTrue(report['container_removed'])
+
+    def test_empty_or_duplicate_manifest_stops_before_docker(self):
+        row = dict(id='same', filename='same.jpg', source='pexels', source_page_url='test')
+        for rows in ([], [row, row]):
+            with self.subTest(rows=rows):
+                (self.project / 'data/images.json').write_text(json.dumps(rows))
+                with self.assertRaises(ValueError):
+                    self.run_check()
+                self.assertEqual(self.commands, [])
 
     def test_failed_seed_still_cleans_up_and_reports_failure(self):
         self.fail_seed = True

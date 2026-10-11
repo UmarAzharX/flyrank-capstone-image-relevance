@@ -33,7 +33,7 @@ Wait for PostgreSQL to accept connections before migration. The migration head i
 
 ### 3. Download or verify the image corpus
 
-The corpus has 50 JPEG entries across five animal groups, representing 49 distinct Pexels photos. `fox_003` and `fox_007` use the same photograph at different sizes. Source links, download URLs, and checksums are recorded in `data/images.json`. Photos are excluded from Git and follow the [Pexels license](https://www.pexels.com/license/); the repository's MIT license applies to the code.
+The manifest has 51 JPEG entries: the original 50 animal images across five groups, plus one original defocused animal-painting photo for a confidence check. Together they represent 50 distinct Pexels photos. `fox_003` and `fox_007` use the same photograph at different sizes. Source links, download URLs, and checksums are recorded in `data/images.json`. Photos are excluded from Git and follow the [Pexels license](https://www.pexels.com/license/); the repository's MIT license applies to the code.
 
 On a fresh checkout, download the missing files:
 
@@ -78,7 +78,7 @@ In the second terminal:
 .\.venv\Scripts\python.exe -B -m scripts.create_vision_job
 ```
 
-Note the job ID printed by the script. In Swagger, execute `POST /jobs/{job_id}/run-batch` with that ID, `max_steps=50`, and `pause_seconds=15`. Poll `GET /jobs/{job_id}` until completed or failed, and inspect `GET /jobs/{job_id}/costs`. A 202 response means queued, not finished. Existing metadata is reused. If the script reports no pending images, skip this step.
+Note the job ID printed by the script. In Swagger, execute `POST /jobs/{job_id}/run-batch` with that ID, `max_steps=50`, and `pause_seconds=15`. Poll `GET /jobs/{job_id}` until completed or failed, and inspect `GET /jobs/{job_id}/costs`. A 202 response means queued, not finished. Existing metadata is reused. If a bounded batch returns to pending, dispatch it again to finish remaining images. If the creation script reports no pending images, skip this step.
 
 Low-confidence metadata is stored with `low_confidence=true` and image status `needs_review`, rather than `tagged`. Stored low-confidence evidence is excluded from automatic suggestions.
 
@@ -89,7 +89,7 @@ Low-confidence metadata is stored with `low_confidence=true` and image status `n
 .\.venv\Scripts\python.exe -B -m scripts.create_embedding_job
 ```
 
-The post batch creates the ten source posts from `data/eval_posts.json`, rejects changed text for an existing external ID, and reuses stored embeddings. The embedding job then scopes the 50 corpus images and ten evaluation posts. In Swagger, execute `POST /jobs/{job_id}/run-embeddings` using its printed ID, `max_steps=60`, and `pause_seconds=15`. Poll its status and costs. A completed job returned by the creation script needs no new dispatch. A pending job at 100% still needs dispatch to confirm cached work and finish; it should create no new AI calls.
+The post batch creates the ten source posts from `data/eval_posts.json`, rejects changed text for an existing external ID, and reuses stored embeddings. The embedding job then scopes all manifest images and ten evaluation posts. In Swagger, execute `POST /jobs/{job_id}/run-embeddings` using its printed ID, `max_steps=60`, and `pause_seconds=15`. Poll its status and costs. A completed job returned by the creation script needs no new dispatch. A pending job at 100% still needs dispatch to confirm cached work and finish; it should create no new AI calls.
 
 These live processing steps can consume free-tier quota. The two job types retry temporary HTTP 429/500/502/503/504 failures, normally up to three attempts with 2- and 4-second waits. Budget blocks and non-retryable failures stop processing. Bounded batches return to pending when their step limit is reached. `POST /jobs/{job_id}/resume` changes a failed job to pending; dispatch it again after addressing the cause. Retry history and previous call records are retained.
 
@@ -115,7 +115,7 @@ The repeatable offline command is:
 .\.venv\Scripts\python.exe -B -m scripts.run_checks
 ```
 
-Recorded staged outcome: all 257 tests passed. These tests use temporary files, isolated SQLite databases, and simulated provider responses. No Gemini requests are sent. The existing Starlette warning about `httpx` is visible and nonfatal in this verified environment; installing a new HTTP client has not been validated. The three live integration commands are deliberately excluded from this runner.
+Recorded staged outcome: all 265 tests passed. These tests use temporary files, isolated SQLite databases, and simulated provider responses. No Gemini requests are sent. The existing Starlette warning about `httpx` is visible and nonfatal in this verified environment; installing a new HTTP client has not been validated. The three live integration commands are deliberately excluded from this runner.
 
 After stored metadata and embeddings are ready, evaluate without new Gemini requests:
 
@@ -138,7 +138,7 @@ With Docker Desktop running and the local `postgres:16` image available:
 .\.venv\Scripts\python.exe -B -m scripts.verify_fresh_postgres
 ```
 
-This creates a temporary PostgreSQL 16 container on a separate localhost port, applies both migrations twice, and seeds images twice. It checks the schema against the models, verifies all 50 source records, and tests PostgreSQL uniqueness, foreign keys, API reads, request validation, and post creation. It removes only its own temporary container and saves a new report under `reports/`.
+This creates a temporary PostgreSQL 16 container on a separate localhost port, applies both migrations twice, and seeds images twice. It checks the schema against the models, verifies every source record against the manifest count, and tests PostgreSQL uniqueness, foreign keys, API reads, request validation, and post creation. It removes only its own temporary container and saves a new report under `reports/`.
 
 The installed project dependencies are reused. The check preserves the existing database, image files, and `app/.env`. Child processes receive the temporary database address, a blank Gemini key, and a zero-call limit. No AI processing is run. This verifies fresh database setup; reinstalling dependencies in a new environment remains a separate task.
 
@@ -160,3 +160,6 @@ Replace `JOB_ID` with the numeric job ID. The first command previews the state. 
 Restart the API, execute `POST /jobs/{job_id}/resume`, then dispatch the appropriate vision or embedding batch. Resumption preserves prior costs and retry counts and reuses stored completed work. A provider request interrupted before its result was saved can require another attempt; do not infer a historical request outcome from recovery.
 
 Seven isolated tests passed for both worker types, preview behavior, stopped-worker confirmation, protected states, tenant isolation, repeat recovery, preserved data, and use of the existing resume endpoint. The tests used simulated stranded states, with no real API process termination or Gemini requests.
+
+
+Latest recorded verification: the [51-entry PostgreSQL check](../reports/fresh_postgres_20261011T031706_391760Z.json) passed all 21 checks and removed its temporary container. The [saved-data audit](../reports/saved_data_audit_20261011T031628_067132Z.json) found zero errors and five documented historical review items.

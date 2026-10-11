@@ -2,7 +2,7 @@
 
 This log records how AI assistance was used during development, where its suggestions required correction, and the decisions I made while building the capstone.
 
-## Phase 1 â€” Design
+## Phase 1 — Design
 
 ### AI assistance
 
@@ -40,7 +40,7 @@ A small `app/` scaffold and empty `tests/` directory were created prematurely wh
 
 After the manifest was populated, an audit showed that only 3 of the 50 referenced image files actually existed locally. The remaining 47 images were then downloaded from their recorded Pexels source pages. A final audit confirmed 50 manifest entries, 50 local images, no missing or unexpected files, no duplicate IDs or filenames, valid JPEG signatures, and 10 images in each of the five planned categories.
 
-## Phase 2 â€” Image understanding
+## Phase 2 — Image understanding
 
 ### AI assistance
 
@@ -59,7 +59,7 @@ AI helped configure the existing google-genai client, validate structured vision
 
 The 50-image vision batch reached 100% completion. Costs were visible under the declared free-tier setup. Early exploratory requests before ledger integration are not treated as proof of complete historical cost accounting.
 
-## Phase 3 â€” Embeddings and matching
+## Phase 3 — Embeddings and matching
 
 ### AI assistance
 
@@ -77,7 +77,7 @@ AI helped build image and post embedding text, validate normalized 768-dimension
 
 All 50 corpus image embeddings and ten evaluation-post embeddings were stored. Eleven suggestions were saved across seven evaluation posts. Three posts received no confident match because the guard lacked the required evidence.
 
-## Phase 4 â€” Review, evaluation, and hardening
+## Phase 4 — Review, evaluation, and hardening
 
 ### AI assistance
 
@@ -95,13 +95,13 @@ AI helped add validated review endpoints and history, evaluation reports, a cuto
 - Post embedding processing gained bounded retries. Embedding jobs gained progress, safe failure reasons, job-linked call records, and failed-job resumption. Live Job 2 completed using cached vectors and recorded zero new calls.
 - Standard unittest discovery could not import the namespace-style scripts directory. A dedicated offline runner provides one explicit command. The combined suite passed 212 tests.
 
-## Documentation checkpoint â€” 2026-10-11
+## Documentation checkpoint — 2026-10-11
 
 AI prepared the README, setup/API guides, environment example, dependency constraints, evidence file, and evaluator manifest. The user reviewed the README and requested separate limitations and future-improvement sections. The first documentation draft was too long. Detailed instructions moved into guides, and the main README was rewritten in simple professional English without ellipses.
 
 The evidence file separates live observations from simulated tests. It records unfinished checks rather than claiming the capstone is fully complete. Eleven focused offline evidence checks passed. Both Alembic migrations applied to a temporary SQLite database with zero model differences. At that checkpoint, fresh PostgreSQL setup had not been verified; the later database check below completed it.
 
-## Saved-data audit checkpoint â€” 2026-10-11
+## Saved-data audit checkpoint — 2026-10-11
 
 AI prepared a read-only audit and 14 isolated tests. The user passed all 14 tests and ran the audit against PostgreSQL. The report `reports/saved_data_audit_20261010T225227_115832Z.json` confirmed valid metadata for 50 images, 50 normalized image embeddings, ten evaluation-post embeddings, and structurally valid cost entries for all 114 recorded calls. One separate probe embedding was excluded from corpus totals. Both jobs were completed at 100%.
 
@@ -133,9 +133,39 @@ The user ran the fog candidate through the existing vision pipeline. Image 53 re
 
 All nine isolated registration checks passed in the user's environment. The latest installed-project regression run passed 257 tests in 4.700 seconds. Git reported no whitespace errors. A refreshed read-only repository scan found no recognized secret patterns and confirmed that app/.env remains ignored and untracked. This limited scan does not prove every possible secret is absent. Public visibility was not established because the network check was declined. The user chose to handle committing and pushing through GitHub Desktop. No commit or push has been performed by this review.
 
+## Published repository review and queued vision jobs — 2026-10-11
+
+The user committed and pushed the Phase 4 submission through GitHub Desktop. GitHub's unauthenticated API confirmed the repository is public and main points to commit 65d97de7737746bfe1af8981ff6754633abfcb0e. Local HEAD and origin/main matched, with a clean working tree. Historical public visibility from day one was not established.
+
+AI reviewed an archive of the committed files. All 257 tests passed there with installed dependencies reused, a blank key, and a zero-call limit. No required files or local Markdown file targets were missing; all Python files parsed and all 16 manifest endpoints matched OpenAPI. Another 27 isolated checks passed separately. This did not verify installation into a completely new virtual environment.
+
+The review found that vision-job creation omitted queued_batch from active states. The new regression test failed against the old command because it created a second job. AI added that state and six isolated checks covering reuse, preservation of stored state, tenant/job-type scope, completed jobs, corpus scope, and missing tenants. The full staged suite passed 263 tests in 14.422 seconds. No live database changes or Gemini calls were made. PostgreSQL concurrency was not tested. This follow-up is prepared for the user to copy, check, commit, and push.
+
+The evidence checklist now records the original submission's completed publication. The genuine low-confidence corpus batch example remains unfinished; both separate live candidates kept their reported confidence of 0.95.
+
 ## Remaining work
 
 - Demonstrate a real low-confidence image without changing the reported confidence or evaluation labels.
-- Commit the reviewed files and confirm public repository visibility and publication.
+- Install, check, commit, and push the queued-job follow-up; the original submission is already published and verified public.
 
-The current implementation uses a fixed demo tenant and in-process jobs. Production authentication, durable job recovery, cache invalidation, and broader independent evaluation remain limitations or future work. No publication or repository-history changes are claimed by this log.
+The current implementation uses a fixed demo tenant and in-process jobs. Production authentication, durable job recovery, cache invalidation, and broader independent evaluation remain limitations or future work. The published original submission is verified above; publication of this follow-up remains pending.
+
+
+## 2026-10-11: Prepare a confidence candidate in the corpus
+
+Added an original, unedited Pexels photo of a defocused animal painting as the 51st manifest entry. Preserved the original 50 entries and evaluation labels. Replaced the fresh PostgreSQL checker's fixed image count with the manifest count; all 265 offline tests passed. The user confirmed pushing the earlier queued-job fix. Live batch confidence, the new embedding, and evaluation against 51 entries are still pending.
+
+
+## 2026-10-11: Live low-confidence corpus batch completed
+
+The user passed 265 offline tests in 12.320s, seeded one new image while reusing 50, and dispatched normal background vision job 3. The job completed at 100% with zero retries. A read-only query confirmed image 54 (`confidence_motion_001`), subject abstract blur, confidence 0.40, low_confidence=True, and status needs_review. The original image and reported score were not altered. Earlier pending-confidence notes describe the status before this result. The new embedding, evaluation against 51 entries, and publication remain pending.
+
+
+## 2026-10-11: Expanded corpus evaluation completed
+
+The user saved embedding 63 for the low-confidence image, recorded under cost entry 119. The vector has 768 dimensions and unit length; token usage was unavailable. Evaluation against all 51 manifest entries returned 7/10 exact matches, 70% coverage, and 100% exact matches among returned suggestions. The manifest hash in `evaluation_51_images_20261011_081338_7401606.json` matches the installed manifest. Original gold labels were unchanged. Final saved-data and fresh PostgreSQL verification, followed by publication, remain pending.
+
+
+## 2026-10-11: Final local verification passed
+
+The saved-data audit confirmed 51 valid corpus descriptions and embeddings, ten evaluation-post embeddings, and one real low-confidence image. It found zero errors and the same five documented historical ledger review items. Fresh PostgreSQL verification passed 21 checks for the expanded corpus, migrations and seeding were repeatable, and the temporary container was removed. Reports: `saved_data_audit_20261011T031628_067132Z.json` and `fresh_postgres_20261011T031706_391760Z.json`. No Gemini requests were sent by either check. The final updates are ready to commit and push.

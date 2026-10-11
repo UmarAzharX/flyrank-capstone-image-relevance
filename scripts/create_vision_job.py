@@ -28,7 +28,7 @@ def main() -> None:
             select(ProcessingJob).where(
                 ProcessingJob.tenant_id == tenant.id,
                 ProcessingJob.job_type == "vision",
-                ProcessingJob.status.in_(["pending", "queued", "running"]),
+                ProcessingJob.status.in_(["pending", "queued", "queued_batch", "running"]),
             )
         )
         if existing_job is not None:

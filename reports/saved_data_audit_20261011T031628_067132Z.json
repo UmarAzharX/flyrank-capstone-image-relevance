@@ -1,0 +1,106 @@
+{
+  "generated_at": "2026-10-11T03:16:28.398434+00:00",
+  "scope": "FlyRank Demo: corpus metadata, evaluation posts, and tenant-owned vectors/jobs/costs",
+  "read_only": true,
+  "gemini_requests_sent": 0,
+  "tenant_id": 1,
+  "embedding_profile": "gemini-embedding-2:768:retrieval:text-v1",
+  "confidence_threshold": 0.8,
+  "images": {
+    "expected": 51,
+    "present": 51,
+    "schema_valid_metadata": 51,
+    "low_confidence_count": 1,
+    "minimum_confidence": 0.4,
+    "maximum_confidence": 0.99
+  },
+  "posts": {
+    "expected": 10,
+    "present": 10,
+    "source_text_matches": 10
+  },
+  "embeddings": {
+    "valid_corpus_images": 51,
+    "valid_evaluation_posts": 10,
+    "other_valid_current_profile": 2,
+    "inactive_profile_count": 0
+  },
+  "costs": {
+    "record_count": 119,
+    "structurally_valid_records": 119,
+    "cost_usd": 0.0,
+    "calls_with_usage": 55,
+    "calls_without_reported_usage": 64,
+    "job_linked_records": 49,
+    "standalone_records": 70,
+    "outcomes": {
+      "response_received": 115,
+      "unknown": 4
+    },
+    "corpus_owners_without_vision_response_record": 2,
+    "scoped_owners_without_embedding_response_record": 0
+  },
+  "jobs": [
+    {
+      "id": 1,
+      "job_type": "vision",
+      "status": "completed",
+      "progress": 100,
+      "retry_count": 0,
+      "has_failure_reason": false
+    },
+    {
+      "id": 2,
+      "job_type": "embedding",
+      "status": "completed",
+      "progress": 100,
+      "retry_count": 0,
+      "has_failure_reason": false
+    },
+    {
+      "id": 3,
+      "job_type": "vision",
+      "status": "completed",
+      "progress": 100,
+      "retry_count": 0,
+      "has_failure_reason": false
+    }
+  ],
+  "errors": [],
+  "warnings": [
+    {
+      "code": "ledger_outcome_unknown_or_legacy",
+      "record_type": "cost",
+      "record_id": 1
+    },
+    {
+      "code": "ledger_outcome_unknown_or_legacy",
+      "record_type": "cost",
+      "record_id": 2
+    },
+    {
+      "code": "ledger_outcome_unknown_or_legacy",
+      "record_type": "cost",
+      "record_id": 3
+    },
+    {
+      "code": "ledger_outcome_unknown_or_legacy",
+      "record_type": "cost",
+      "record_id": 4
+    },
+    {
+      "code": "corpus_owner_without_vision_response_record",
+      "record_type": "cost"
+    }
+  ],
+  "status": "review",
+  "live_low_confidence_example_present": true,
+  "limits": [
+    "Response records are owner-level evidence; they do not identify the exact call that produced each artifact.",
+    "Unrecorded historical calls cannot be discovered from this ledger alone.",
+    "No input hashes exist to prove cached vectors match unchanged image descriptions.",
+    "Missing usage is not measured zero usage; USD 0 assumes the declared free tier."
+  ],
+  "corpus_manifest_sha256": "5e08d4bf7c133f8f0815f69004fd52997f7de2405e8e43651135d158901745a8",
+  "evaluation_dataset_sha256": "e4d71ffe2d32d367b2d1e12b5850e246caecf8b11b27d3d92d8e78390969a939"
+}

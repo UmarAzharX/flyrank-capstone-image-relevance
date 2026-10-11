@@ -24,7 +24,7 @@ PASS: confidence above one rejected with ValidationError.
 Controlled fixture: confidence=0.60 | low_confidence=True | status=needs_review | cosine=1.0 | automatic_suggestions=0
 ```
 
-This used a simulated response. All 50 live corpus results were above threshold. The separate live candidate `confidence_probe_001` (image ID 52) returned confidence 0.95 and was correctly saved as `tagged` with `low_confidence=False`; cost entry 115 recorded the request. The second unedited candidate `confidence_probe_fog_001` (image ID 53) also returned confidence 0.95. It was saved as `tagged` with `low_confidence=False`, and cost entry 117 recorded the request. The user passed nine isolated registration checks. Both live candidate results were preserved. These were single-image runs outside the original corpus. **The brief's low-confidence result through a corpus background batch remains pending.**
+This used a simulated response. All 50 live corpus results were above threshold. The separate live candidate `confidence_probe_001` (image ID 52) returned confidence 0.95 and was correctly saved as `tagged` with `low_confidence=False`; cost entry 115 recorded the request. The second unedited candidate `confidence_probe_fog_001` (image ID 53) also returned confidence 0.95. It was saved as `tagged` with `low_confidence=False`, and cost entry 117 recorded the request. The user passed nine isolated registration checks. Both live candidate results were preserved. These were single-image runs outside the original corpus. **The added corpus image now demonstrates this behavior through completed background job 3; see the live result below.**
 
 ## 3. Background vision processing and retries
 
@@ -52,7 +52,7 @@ Cost USD: 0.00 (free tier)
 
 **Offline:** `test_transient_retry_is_persisted_and_each_call_attributed`, `test_budget_block_prevents_sdk_and_cost_record`, and `test_retry_cannot_bypass_call_cap` in [the worker checks](scripts/check_embedding_worker.py) passed.
 
-The [saved-data audit](reports/saved_data_audit_20261010T225227_115832Z.json) checked 114 cost entries with no structural errors. Four early entries have unknown or legacy outcomes; two corpus images lack a recognized vision-response record. These are historical evidence gaps. The [read-only inspection](reports/legacy_ledger_review_20261011T001830_277513Z.json) confirmed that calls 1â€“4 have unknown outcomes; `fox_002` and `fox_003` have metadata but only legacy vision-call records. Reported usage does not establish those call outcomes. The original records were preserved. Token usage was unavailable for 62 entries. USD 0 assumes the declared free tier.
+The [saved-data audit](reports/saved_data_audit_20261010T225227_115832Z.json) checked 114 cost entries with no structural errors. Four early entries have unknown or legacy outcomes; two corpus images lack a recognized vision-response record. These are historical evidence gaps. The [read-only inspection](reports/legacy_ledger_review_20261011T001830_277513Z.json) confirmed that calls 1–4 have unknown outcomes; `fox_002` and `fox_003` have metadata but only legacy vision-call records. Reported usage does not establish those call outcomes. The original records were preserved. Token usage was unavailable for 62 entries. USD 0 assumes the declared free tier.
 
 ## 5. Stored embeddings and ranked suggestions
 
@@ -170,7 +170,7 @@ The [README](README.md) includes an architecture diagram, setup/seed/run command
 
 **Live download verification, 2026-10-11:** the [verified source report](reports/corpus_sources_verified_20261011.json) records 50 successful downloads into a separate folder, followed by a repeat run with zero downloads. The original corpus passed all 50 checksum checks without changes. Three fox source-page links were corrected; `fox_003` and `fox_007` share one photo, leaving 49 distinct photographs. Original and fresh-download hashes are recorded separately because 17 files differ in bytes. Four isolated source-sync tests passed. Live `GET /images` confirmed that all three corrected source links are present in the existing database.
 
-The manifest's 16 endpoint definitions matched OpenAPI. On 2026-10-11, `app/.env` was ignored and absent from the tracked-file check. The [read-only repository review](reports/repository_review_20261011.json) found the required remote name, an ignored and untracked `app/.env`, and no recognized secret patterns among scanned current files and historical blobs. This limited pattern scan does not prove every possible secret is absent. Many submission files remain uncommitted; remote visibility and publication remain unverified.
+The manifest's 16 endpoint definitions matched OpenAPI. On 2026-10-11, `app/.env` was ignored and absent from the tracked-file check. The [read-only repository review](reports/repository_review_20261011.json) found the required remote name, an ignored and untracked `app/.env`, and no recognized secret patterns among scanned current files and historical blobs. This limited pattern scan does not prove every possible secret is absent. That pre-publication review did not establish remote visibility or publication. The later verification below confirmed the published repository.
 
 ## Combined test evidence
 
@@ -206,11 +206,46 @@ Run `.\.venv\Scripts\python.exe -B -m scripts.run_checks` to repeat the full off
 
 The read-only audit found **0 errors and 5 review items**. All 50 metadata records, 50 image embeddings, ten evaluation-post embeddings, and 114 cost entries passed their structural checks. Both jobs were completed at 100%. The review items cover four unknown or legacy call outcomes and missing recognized vision-response records for two corpus images. No Gemini requests were sent or database records changed.
 
-All corpus confidence values were between 0.95 and 0.99. The real low-confidence acceptance example remains pending. The user also passed all 14 isolated audit tests. These tests were run separately from the recorded 212-test suite.
+At the time of this original audit, all 50 corpus confidence values were between 0.95 and 0.99. The later added image returned 0.40, as recorded below. The user also passed all 14 isolated audit tests. These tests were run separately from the recorded 212-test suite.
+
+## Publication and queued-job correction — 2026-10-11
+
+**Public repository verification:** GitHub's unauthenticated API confirmed `private=false`, `visibility=public`, and default branch `main`. The published commit `65d97de7737746bfe1af8981ff6754633abfcb0e` matched local HEAD and origin/main. The local working tree was clean. The [verification record](reports/public_repository_verification_20261011.json) records these observations. Current public visibility does not prove historical visibility from day one.
+
+The committed checkout passed all 257 offline tests in 5.036s using installed dependencies, a blank Gemini key, and a zero-call limit. Required files were present, local Markdown file links resolved, all tracked Python files parsed, and all 16 manifest operations matched OpenAPI. This was not a new dependency installation or a live AI run.
+
+**Queued vision job regression:** `test_queued_batch_and_other_active_states_reuse_job_without_changes` in [vision-job creation checks](scripts/check_vision_job_creation.py) failed before the fix because creating a job produced a second active job while the first was `queued_batch`. The creation check now treats `queued_batch` as active. Six isolated checks cover active states, preservation of progress/retries/costs and image state, repeat creation, tenant/job-type scope, completed jobs, corpus scope, and a missing tenant.
+
+**Assistant's latest staged regression run:**
+
+```text
+Ran 263 tests in 14.422s
+
+OK
+```
+
+The staged suite used isolated SQLite and simulated AI responses. No live database records were changed and no Gemini requests were sent. These checks do not establish PostgreSQL concurrency behavior. The user confirmed installing, checking, and pushing this follow-up. Its new remote commit has not been independently verified here.
 
 ## Remaining acceptance checks
 
-1. Record a real low-confidence image result without changing its reported confidence.
-2. Commit the reviewed submission files and confirm public repository visibility and publication. Manual interruption recovery has been reviewed; automatic recovery remains a limitation.
+1. Commit and push the final updates, then verify the published files. All current local checks are recorded below. Historical ledger gaps remain documented limitations.
 
-**Final installed-project regression check, 2026-10-11:** 257 offline tests passed in 4.700s. Git's whitespace check reported no issues. The refreshed read-only repository review found no recognized secret patterns, no tracked `app/.env`, and 78 untracked files before this documentation update. Public visibility and publication were not verified; the network check was declined.
+
+## Added corpus confidence candidate — 2026-10-11
+
+The manifest now includes `confidence_motion_001`, an original Pexels photograph of a defocused animal painting by Leiliane Assis. Its [source record](data/confidence_motion_candidate_v1.json) includes the download checksum and license link. The image was not edited. The original 50 manifest entries and evaluation labels were preserved.
+
+The fresh PostgreSQL checker now uses the manifest count. Offline regression checks cover seeding and reusing 51 entries, rejecting empty or duplicate manifests before Docker, and retaining temporary-container isolation. All **265 offline tests passed in 16.091s**. No live database writes or Gemini requests were made during these checks. The later live PostgreSQL verification passed for all 51 entries, as recorded below.
+
+**Live result supplied by the user:** background vision job 3 completed at 100%, with zero retries and no failure reason. A read-only PostgreSQL query returned image ID 54, subject `abstract blur`, confidence **0.40**, `low_confidence=True`, and status **`needs_review`**. This is below the unchanged configured threshold of 0.80. The confidence was not altered.
+
+The [live evidence record](reports/live_low_confidence_batch_20261011.json) preserves the supplied job response and saved metadata. The assistant did not independently query the live database. No cost entry ID or token usage was supplied. The user's installed suite also passed **265 tests in 12.320s**. The user saved embedding 63 using call entry 119, with 768 dimensions and unit vector length. Token usage was unavailable. The [51-image evaluation](reports/evaluation_51_images_20261011_081338_7401606.json) reports 7/10 exact matches, 7/10 coverage, and 7/7 exact matches among returned results. The report's manifest hash matches the current manifest. Evaluation labels and matching thresholds were unchanged. Final saved-data and fresh PostgreSQL checks passed, as recorded below.
+
+
+## Final verification — 2026-10-11
+
+The [saved-data audit](reports/saved_data_audit_20261011T031628_067132Z.json) confirms 51/51 valid corpus metadata records, 51/51 valid corpus embeddings, ten valid evaluation-post embeddings, one low-confidence corpus image, and 119 structurally valid cost entries. All three jobs completed at 100%. It found **zero errors and five review items**: four legacy call outcomes and missing recognized historical vision-response records for two original corpus images. These gaps were preserved and disclosed. Token usage was unavailable for 64 calls.
+
+The [fresh PostgreSQL verification](reports/fresh_postgres_20261011T031706_391760Z.json) passed all **21 checks** for the 51-entry manifest, plus migrations and seeding repeated successfully. The schema matched the models with zero differences. The temporary container was removed; the existing database and environment file were unchanged. No Gemini requests were sent. Installed dependencies were reused, so this does not demonstrate a fresh dependency installation.
+
+These saved reports were read and checked against the current manifest. Publication of the final updates is the remaining delivery step.
